@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cartas | TableFamily</title>
+
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+
+<body>
+    <a class="saltar-contenido" href="#contenido">
+        Saltar al contenido
+    </a>
+
+    <!-- ENCABEZADO -->
+    <header class="encabezado">
+        <div class="contenedor encabezado-contenido">
+
+            <a
+                class="marca"
+                href="../index.html"
+                aria-label="TableFamily, página de inicio"
+            >
+                <img
+                    src="../img/Logo.png"
+                    alt="TableFamily"
+                    width="280"
+                >
+            </a>
+
+            <nav class="menu" aria-label="Navegación principal">
+                <a class="menu-enlace" href="../index.html">
+                    Inicio
+                </a>
+
+                <a
+                    class="menu-enlace activo"
+                    href="../index.html#categorias"
+                >
+                    Categorías
+                </a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main id="contenido">
+
+        <!-- PRESENTACIÓN DE LA CATEGORÍA -->
+        <section
+            class="cabecera-categoria cabecera-cartas"
+            aria-labelledby="titulo-cartas"
+        >
+            <div class="contenedor">
+                <p class="etiqueta">
+                    Una buena partida está en tus manos
+                </p>
+
+                <h1 id="titulo-cartas">
+                    Juegos de cartas
+                </h1>
+
+                <p class="introduccion-categoria">
+                    Combina estrategia, rapidez y un poco de suerte.
+                    Descubre juegos para llevar la diversión a cualquier mesa.
+                </p>
+            </div>
+        </section>
+
+        <div class="contenedor catalogo-categoria">
+
+            <!-- NAVEGACIÓN ENTRE CATEGORÍAS -->
+            <nav
+                class="navegacion-categorias"
+                aria-label="Categorías de juegos"
+            >
+                <a href="estrategia.html">
+                    Estrategia
+                </a>
+
+                <a href="familiares.html">
+                    Familiares
+                </a>
+
+                <a
+                    class="categoria-actual"
+                    href="cartas.html"
+                    aria-current="page"
+                >
+                    Cartas
+                </a>
+
+                <a href="cooperativos.html">
+                    Cooperativos
+                </a>
+            </nav>
+
+            <!-- LISTADO DE JUEGOS -->
+            <section aria-labelledby="titulo-juegos">
+
+                <div class="encabezado-catalogo">
+                    <div>
+                        <p class="etiqueta">
+                            Baraja, reparte y disfruta
+                        </p>
+
+                        <h2 id="titulo-juegos">
+                            Nuestros juegos
+                        </h2>
+                    </div>
+
+                    <p>3 juegos disponibles en el catálogo</p>
+                </div>
+
+                <div class="grilla-productos">
+
+                    <!-- UNO -->
+                    <article
+                        class="producto"
+                        aria-labelledby="nombre-uno"
+                    >
+                        <div class="producto-foto">
+                            <span class="distintivo descuento">
+                                20 % de descuento
+                            </span>
+
+                            <img
+                                src="../img/juego-uno.png"
+                                alt="Cartas de colores y números del juego UNO"
+                                width="600"
+                                height="450"
+                            >
+                        </div>
+
+                        <div class="producto-contenido">
+                            <p class="producto-categoria">
+                                Cartas
+                            </p>
+
+                            <h3 id="nombre-uno">
+                                UNO
+                            </h3>
+
+                            <p class="producto-descripcion">
+                                Combina colores o números para descartar
+                                tus cartas. Usa las cartas especiales y
+                                recuerda decir UNO cuando te quede una.
+                            </p>
+
+                            <div class="producto-precios">
+                                <p class="precio-anterior">
+                                    Precio normal:
+                                    <del>$10.000</del>
+                                </p>
+
+                                <p class="precio-venta">
+                                    <span>Precio de venta</span>
+                                    <strong>$8.000</strong>
+                                </p>
+
+                                <p class="ahorro">
+                                    Ahorras $2.000
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- BARAJA ESPAÑOLA -->
+                    <article
+                        class="producto"
+                        aria-labelledby="nombre-baraja"
+                    >
+                        <div class="producto-foto">
+                            <span class="distintivo sin-descuento">
+                                Sin descuento
+                            </span>
+
+                            <img
+                                src="../img/juego-baraja.png"
+                                alt="Baraja española con cartas de oros, copas, espadas y bastos"
+                                width="600"
+                                height="450"
+                            >
+                        </div>
+
+                        <div class="producto-contenido">
+                            <p class="producto-categoria">
+                                Cartas
+                            </p>
+
+                            <h3 id="nombre-baraja">
+                                Baraja española
+                            </h3>
+
+                            <p class="producto-descripcion">
+                                Comparte juegos tradicionales como
+                                la brisca o la escoba. Una baraja
+                                para disfrutar distintas partidas
+                                con familiares y amigos.
+                            </p>
+
+                            <div class="producto-precios">
+                                <p class="precio-regular">
+                                    Precio regular, sin descuento.
+                                </p>
+
+                                <p class="precio-venta">
+                                    <span>Precio de venta</span>
+                                    <strong>$5.990</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- SUSHI GO -->
+                    <article
+                        class="producto"
+                        aria-labelledby="nombre-sushi"
+                    >
+                        <div class="producto-foto">
+                            <span class="distintivo descuento">
+                                25 % de descuento
+                            </span>
+
+                            <img
+                                src="../img/juego-sushi-go.png"
+                                alt="Cartas ilustradas con platos de sushi del juego Sushi Go"
+                                width="600"
+                                height="450"
+                            >
+                        </div>
+
+                        <div class="producto-contenido">
+                            <p class="producto-categoria">
+                                Cartas
+                            </p>
+
+                            <h3 id="nombre-sushi">
+                                Sushi Go!
+                            </h3>
+
+                            <p class="producto-descripcion">
+                                Elige una carta y pasa las demás.
+                                Reúne combinaciones de platos de sushi
+                                para sumar puntos durante la partida.
+                            </p>
+
+                            <div class="producto-precios">
+                                <p class="precio-anterior">
+                                    Precio normal:
+                                    <del>$20.000</del>
+                                </p>
+
+                                <p class="precio-venta">
+                                    <span>Precio de venta</span>
+                                    <strong>$15.000</strong>
+                                </p>
+
+                                <p class="ahorro">
+                                    Ahorras $5.000
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <p class="nota-catalogo">
+                    Catálogo de demostración para una actividad académica.
+                    Precios de ejemplo expresados en pesos chilenos.
+                </p>
+
+            </section>
+
+            <div class="regreso-catalogo">
+                <a
+                    class="boton-principal"
+                    href="../index.html#categorias"
+                >
+                    <span aria-hidden="true">←</span>
+                    Volver a las categorías
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="pie">
+        <div class="contenedor pie-contenido">
+            <p>
+                <strong>TableFamily</strong>
+
+                <span class="pie-separador" aria-hidden="true">
+                    ·
+                </span>
+
+                Juegos que nos reúnen
+            </p>
+
+            <a href="../index.html">
+                Volver al inicio
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
