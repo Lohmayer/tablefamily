@@ -6,17 +6,15 @@
 
     <title>Cartas | TableFamily</title>
 
-    <link rel="stylesheet" href="../vendor/bootstrap/bootstrap.min.css">
-<link rel="stylesheet" href="../css/estilos.css">
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../css/estilos.css">
     <link rel="stylesheet" href="../css/categorias.css">
     <link rel="stylesheet" href="../css/cartas.css">
-
-<link rel="stylesheet" href="../css/acceso.css">
-<link rel="stylesheet" href="../css/bootstrap-ajustes.css">
-<script src="../vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
+    <link rel="stylesheet" href="../css/acceso.css">
+    <script src="../js/acceso.js" defer></script>
+    <!-- Componentes compartidos y animaciones -->
     <script src="../js/componentes.js" defer></script>
     <script src="../js/animaciones.js" defer></script>
-    <script src="../js/acceso.js" defer></script>
 </head>
 
 <body data-pagina="categorias">
@@ -24,13 +22,17 @@
         Saltar al contenido
     </a>
 
-    <!-- ENCABEZADO -->
+    <!-- Encabezado compartido -->
     <div id="encabezado-compartido"></div>
-<main id="contenido">
 
-        <!-- PRESENTACIÓN DE LA CATEGORÍA -->
-        <section class="cabecera-categoria cabecera-cartas" aria-labelledby="titulo-cartas">
-            <div class="contenedor container">
+    <main id="contenido">
+
+        <!-- Presentación de la categoría -->
+        <section
+            class="cabecera-categoria cabecera-cartas"
+            aria-labelledby="titulo-cartas"
+        >
+            <div class="contenedor">
                 <p class="etiqueta">
                     Una buena partida está en tus manos
                 </p>
@@ -46,10 +48,13 @@
             </div>
         </section>
 
-        <div class="contenedor catalogo-categoria container">
+        <div class="contenedor catalogo-categoria">
 
-            <!-- NAVEGACIÓN ENTRE CATEGORÍAS -->
-            <nav class="navegacion-categorias" aria-label="Categorías de juegos">
+            <!-- Navegación entre categorías -->
+            <nav
+                class="navegacion-categorias"
+                aria-label="Categorías de juegos"
+            >
                 <a href="estrategia.html">
                     Estrategia
                 </a>
@@ -58,7 +63,11 @@
                     Familiares
                 </a>
 
-                <a class="categoria-actual" href="cartas.html" aria-current="page">
+                <a
+                    class="categoria-actual"
+                    href="cartas.html"
+                    aria-current="page"
+                >
                     Cartas
                 </a>
 
@@ -67,7 +76,7 @@
                 </a>
             </nav>
 
-            <!-- LISTADO DE JUEGOS -->
+            <!-- Listado de juegos -->
             <section aria-labelledby="titulo-juegos">
 
                 <div class="encabezado-catalogo">
@@ -84,17 +93,24 @@
                     <p>3 juegos disponibles en el catálogo</p>
                 </div>
 
-                <div class="grilla-productos row g-4">
+                <div class="grilla-productos">
 
                     <!-- UNO -->
-                    <div class="col-12 col-md-6 col-lg-4">
-<article class="producto h-100" aria-labelledby="nombre-uno">
+                    <article
+                        class="producto"
+                        aria-labelledby="nombre-uno"
+                    >
                         <div class="producto-foto">
                             <span class="distintivo descuento">
                                 20 % de descuento
                             </span>
 
-                            <img src="../img/juego-uno.png" alt="Cartas de colores y números del juego UNO" width="600" height="450" class="img-fluid">
+                            <img
+                                src="../img/juego-uno.png"
+                                alt="Cartas de colores y números del juego UNO"
+                                width="600"
+                                height="450"
+                            >
                         </div>
 
                         <div class="producto-contenido">
@@ -130,16 +146,22 @@
                         </div>
                     </article>
 
-                    </div>
-<!-- BARAJA ESPAÑOLA -->
-                    <div class="col-12 col-md-6 col-lg-4">
-<article class="producto h-100" aria-labelledby="nombre-baraja">
+                    <!-- Baraja española -->
+                    <article
+                        class="producto"
+                        aria-labelledby="nombre-baraja"
+                    >
                         <div class="producto-foto">
                             <span class="distintivo sin-descuento">
                                 Sin descuento
                             </span>
 
-                            <img src="../img/juego-baraja.png" alt="Baraja española con cartas de oros, copas, espadas y bastos" width="600" height="450" class="img-fluid">
+                            <img
+                                src="../img/juego-baraja.png"
+                                alt="Baraja española con cartas de oros, copas, espadas y bastos"
+                                width="600"
+                                height="450"
+                            >
                         </div>
 
                         <div class="producto-contenido">
@@ -171,16 +193,22 @@
                         </div>
                     </article>
 
-                    </div>
-<!-- SUSHI GO -->
-                    <div class="col-12 col-md-6 col-lg-4">
-<article class="producto h-100" aria-labelledby="nombre-sushi">
+                    <!-- Sushi Go -->
+                    <article
+                        class="producto"
+                        aria-labelledby="nombre-sushi"
+                    >
                         <div class="producto-foto">
                             <span class="distintivo descuento">
                                 25 % de descuento
                             </span>
 
-                            <img src="../img/juego-sushi-go.png" alt="Cartas ilustradas con platos de sushi del juego Sushi Go" width="600" height="450" class="img-fluid">
+                            <img
+                                src="../img/juego-sushi-go.png"
+                                alt="Cartas ilustradas con platos de sushi del juego Sushi Go"
+                                width="600"
+                                height="450"
+                            >
                         </div>
 
                         <div class="producto-contenido">
@@ -217,7 +245,6 @@
                     </article>
 
                 </div>
-</div>
 
                 <p class="nota-catalogo">
                     Catálogo de demostración para una actividad académica.
@@ -227,7 +254,10 @@
             </section>
 
             <div class="regreso-catalogo">
-                <a class="boton-principal" href="../index.html#categorias">
+                <a
+                    class="boton-principal"
+                    href="../index.html#categorias"
+                >
                     <span aria-hidden="true">←</span>
                     Volver a las categorías
                 </a>
@@ -236,7 +266,7 @@
         </div>
     </main>
 
-    <!-- PIE DE PÁGINA -->
+    <!-- Footer compartido -->
     <div id="footer-compartido"></div>
 </body>
 </html>

@@ -6,18 +6,15 @@
 
     <title>Estrategia | TableFamily</title>
 
-    <!-- Desde esta carpeta debemos retroceder un nivel -->
-    <link rel="stylesheet" href="../vendor/bootstrap/bootstrap.min.css">
-<link rel="stylesheet" href="../css/estilos.css">
-    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../css/estilos.css">
     <link rel="stylesheet" href="../css/categorias.css">
     <link rel="stylesheet" href="../css/estrategia.css">
-<link rel="stylesheet" href="../css/acceso.css">
-<link rel="stylesheet" href="../css/bootstrap-ajustes.css">
-<script src="../vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
+    <link rel="stylesheet" href="../css/acceso.css">
+    <script src="../js/acceso.js" defer></script>
+    <!-- Componentes compartidos y animaciones -->
     <script src="../js/componentes.js" defer></script>
     <script src="../js/animaciones.js" defer></script>
-    <script src="../js/acceso.js" defer></script>
 </head>
 
 <body data-pagina="categorias">
@@ -25,14 +22,20 @@
         Saltar al contenido
     </a>
 
-    <!-- ENCABEZADO -->
+    <!-- Encabezado compartido -->
     <div id="encabezado-compartido"></div>
-<main id="contenido">
 
-        <!-- PRESENTACIÓN DE LA CATEGORÍA -->
-        <section class="cabecera-categoria cabecera-estrategia" aria-labelledby="titulo-estrategia">
-            <div class="contenedor container">
-                <p class="etiqueta">Planea tu próxima victoria</p>
+    <main id="contenido">
+
+        <!-- Presentación de la categoría -->
+        <section
+            class="cabecera-categoria cabecera-estrategia"
+            aria-labelledby="titulo-estrategia"
+        >
+            <div class="contenedor">
+                <p class="etiqueta">
+                    Planea tu próxima victoria
+                </p>
 
                 <h1 id="titulo-estrategia">
                     Juegos de estrategia
@@ -45,11 +48,18 @@
             </div>
         </section>
 
-        <div class="contenedor catalogo-categoria container">
+        <div class="contenedor catalogo-categoria">
 
-            <!-- NAVEGACIÓN ENTRE CATEGORÍAS -->
-            <nav class="navegacion-categorias" aria-label="Categorías de juegos">
-                <a class="categoria-actual" href="estrategia.html" aria-current="page">
+            <!-- Navegación entre categorías -->
+            <nav
+                class="navegacion-categorias"
+                aria-label="Categorías de juegos"
+            >
+                <a
+                    class="categoria-actual"
+                    href="estrategia.html"
+                    aria-current="page"
+                >
                     Estrategia
                 </a>
 
@@ -66,12 +76,14 @@
                 </a>
             </nav>
 
-            <!-- JUEGOS -->
+            <!-- Listado de juegos -->
             <section aria-labelledby="titulo-juegos">
 
                 <div class="encabezado-catalogo">
                     <div>
-                        <p class="etiqueta">Elige tu desafío</p>
+                        <p class="etiqueta">
+                            Elige tu desafío
+                        </p>
 
                         <h2 id="titulo-juegos">
                             Nuestros juegos
@@ -81,17 +93,24 @@
                     <p>3 juegos disponibles en el catálogo</p>
                 </div>
 
-                <div class="grilla-productos row g-4">
+                <div class="grilla-productos">
 
-                    <!-- CATAN -->
-                    <div class="col-12 col-md-6 col-lg-4">
-<article class="producto h-100" aria-labelledby="nombre-catan">
+                    <!-- Catan -->
+                    <article
+                        class="producto"
+                        aria-labelledby="nombre-catan"
+                    >
                         <div class="producto-foto">
                             <span class="distintivo descuento">
                                 20 % de descuento
                             </span>
 
-                            <img src="../img/juego-catan.png" alt="Juego de mesa Catan" width="600" height="450" class="img-fluid">
+                            <img
+                                src="../img/juego-catan.png"
+                                alt="Juego de mesa Catan"
+                                width="600"
+                                height="450"
+                            >
                         </div>
 
                         <div class="producto-contenido">
@@ -127,16 +146,22 @@
                         </div>
                     </article>
 
-                    </div>
-<!-- AJEDREZ -->
-                    <div class="col-12 col-md-6 col-lg-4">
-<article class="producto h-100" aria-labelledby="nombre-ajedrez">
+                    <!-- Ajedrez -->
+                    <article
+                        class="producto"
+                        aria-labelledby="nombre-ajedrez"
+                    >
                         <div class="producto-foto">
                             <span class="distintivo sin-descuento">
                                 Sin descuento
                             </span>
 
-                            <img src="../img/juego-ajedrez.png" alt="Tablero de ajedrez con piezas blancas y negras" width="600" height="450" class="img-fluid">
+                            <img
+                                src="../img/juego-ajedrez.png"
+                                alt="Tablero de ajedrez con piezas blancas y negras"
+                                width="600"
+                                height="450"
+                            >
                         </div>
 
                         <div class="producto-contenido">
@@ -167,16 +192,22 @@
                         </div>
                     </article>
 
-                    </div>
-<!-- RISK -->
-                    <div class="col-12 col-md-6 col-lg-4">
-<article class="producto h-100" aria-labelledby="nombre-risk">
+                    <!-- Risk -->
+                    <article
+                        class="producto"
+                        aria-labelledby="nombre-risk"
+                    >
                         <div class="producto-foto">
                             <span class="distintivo descuento">
                                 25 % de descuento
                             </span>
 
-                            <img src="../img/juego-risk.png" alt="Juego de mesa Risk" width="600" height="450" class="img-fluid">
+                            <img
+                                src="../img/juego-risk.png"
+                                alt="Juego de mesa Risk"
+                                width="600"
+                                height="450"
+                            >
                         </div>
 
                         <div class="producto-contenido">
@@ -213,7 +244,6 @@
                     </article>
 
                 </div>
-</div>
 
                 <p class="nota-catalogo">
                     Catálogo de demostración para una actividad académica.
@@ -223,7 +253,10 @@
             </section>
 
             <div class="regreso-catalogo">
-                <a class="boton-principal" href="../index.html#categorias">
+                <a
+                    class="boton-principal"
+                    href="../index.html#categorias"
+                >
                     <span aria-hidden="true">←</span>
                     Volver a las categorías
                 </a>
@@ -232,7 +265,7 @@
         </div>
     </main>
 
-    <!-- PIE DE PÁGINA -->
+    <!-- Footer compartido -->
     <div id="footer-compartido"></div>
 </body>
 </html>
