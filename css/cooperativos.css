@@ -1,0 +1,11 @@
+/* TableFamily — Estilos exclusivos de la categoría Cooperativos. */
+
+.cabecera-categoria.cabecera-cooperativos {
+    background-image:
+            linear-gradient(
+                90deg,
+                rgb(4 24 45 / 95%),
+                rgb(4 24 45 / 65%)
+            ),
+            url("../img/cooperativos.png");
+}

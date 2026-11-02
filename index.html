@@ -3,62 +3,34 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>TableFamily | Juegos que nos reúnen</title>
 
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="css/estilos.css">
+    
+    <link rel="stylesheet" href="css/inicio.css">
+<link rel="stylesheet" href="css/acceso.css">
+<link rel="stylesheet" href="css/bootstrap-ajustes.css">
+<script src="vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
+    <script src="js/componentes.js" defer></script>
+    <script src="js/animaciones.js" defer></script>
+    <script src="js/acceso.js" defer></script>
 </head>
 
-<body>
+<body data-pagina="inicio">
     <a class="saltar-contenido" href="#contenido">
         Saltar al contenido
     </a>
 
     <!-- Logo y navegación centrados -->
-    <header class="encabezado">
-        <div class="contenedor encabezado-contenido">
-
-            <a
-                class="marca"
-                href="index.html"
-                aria-label="TableFamily, página de inicio"
-            >
-                <img
-                    src="img/Logo.png"
-                    alt="TableFamily"
-                    width="280"
-                >
-            </a>
-
-            <nav class="menu" aria-label="Navegación principal">
-                <a
-                    class="menu-enlace activo"
-                    href="index.html"
-                    aria-current="page"
-                >
-                    Inicio
-                </a>
-
-                <a class="menu-enlace" href="#categorias">
-                    Categorías
-                </a>
-            </nav>
-
-        </div>
-    </header>
-
-    <main id="contenido">
+    <div id="encabezado-compartido"></div>
+<main id="contenido">
 
         <!-- Presentación con fotografía de fondo -->
-        <section
-            class="portada"
-            aria-labelledby="titulo-principal"
-        >
-            <div class="contenedor portada-contenido">
+        <section class="portada" aria-labelledby="titulo-principal">
+            <div class="contenedor portada-contenido container">
 
                 <div class="portada-texto">
                     <p class="etiqueta">
@@ -87,12 +59,8 @@
         </section>
 
         <!-- Catálogo de categorías -->
-        <section
-            class="categorias"
-            id="categorias"
-            aria-labelledby="titulo-categorias"
-        >
-            <div class="contenedor">
+        <section class="categorias" id="categorias" aria-labelledby="titulo-categorias">
+            <div class="contenedor container">
 
                 <div class="titulo-seccion">
                     <span class="adorno" aria-hidden="true">✦</span>
@@ -108,25 +76,16 @@
                     </p>
                 </div>
 
-                <div class="grilla-categorias">
+                <div class="grilla-categorias row g-4">
 
                     <!-- Estrategia -->
-                    <article class="tarjeta categoria-estrategia">
-                        <a
-                            class="tarjeta-enlace"
-                            href="categorias/estrategia.html"
-                        >
-                            <div
-                                class="tarjeta-imagen imagen-estrategia"
-                                role="img"
-                                aria-label="Tablero con piezas de un juego de estrategia"
-                            ></div>
+                    <div class="col-12 col-md-6 col-xl-3">
+<article class="tarjeta categoria-estrategia h-100">
+                        <a class="tarjeta-enlace" href="categorias/estrategia.html">
+                            <div class="tarjeta-imagen imagen-estrategia" role="img" aria-label="Tablero con piezas de un juego de estrategia"></div>
 
                             <div class="tarjeta-contenido">
-                                <span
-                                    class="categoria-icono"
-                                    aria-hidden="true"
-                                >
+                                <span class="categoria-icono" aria-hidden="true">
                                     ♜
                                 </span>
 
@@ -145,23 +104,15 @@
                         </a>
                     </article>
 
-                    <!-- Familiares -->
-                    <article class="tarjeta categoria-familiares">
-                        <a
-                            class="tarjeta-enlace"
-                            href="categorias/familiares.html"
-                        >
-                            <div
-                                class="tarjeta-imagen imagen-familiares"
-                                role="img"
-                                aria-label="Una familia compartiendo un juego de mesa"
-                            ></div>
+                    </div>
+<!-- Familiares -->
+                    <div class="col-12 col-md-6 col-xl-3">
+<article class="tarjeta categoria-familiares h-100">
+                        <a class="tarjeta-enlace" href="categorias/familiares.html">
+                            <div class="tarjeta-imagen imagen-familiares" role="img" aria-label="Una familia compartiendo un juego de mesa"></div>
 
                             <div class="tarjeta-contenido">
-                                <span
-                                    class="categoria-icono"
-                                    aria-hidden="true"
-                                >
+                                <span class="categoria-icono" aria-hidden="true">
                                     ☺
                                 </span>
 
@@ -180,23 +131,15 @@
                         </a>
                     </article>
 
-                    <!-- Cartas -->
-                    <article class="tarjeta categoria-cartas">
-                        <a
-                            class="tarjeta-enlace"
-                            href="categorias/cartas.html"
-                        >
-                            <div
-                                class="tarjeta-imagen imagen-cartas"
-                                role="img"
-                                aria-label="Cartas ilustradas de un juego de mesa"
-                            ></div>
+                    </div>
+<!-- Cartas -->
+                    <div class="col-12 col-md-6 col-xl-3">
+<article class="tarjeta categoria-cartas h-100">
+                        <a class="tarjeta-enlace" href="categorias/cartas.html">
+                            <div class="tarjeta-imagen imagen-cartas" role="img" aria-label="Cartas ilustradas de un juego de mesa"></div>
 
                             <div class="tarjeta-contenido">
-                                <span
-                                    class="categoria-icono"
-                                    aria-hidden="true"
-                                >
+                                <span class="categoria-icono" aria-hidden="true">
                                     ♠
                                 </span>
 
@@ -215,23 +158,15 @@
                         </a>
                     </article>
 
-                    <!-- Cooperativos -->
-                    <article class="tarjeta categoria-cooperativos">
-                        <a
-                            class="tarjeta-enlace"
-                            href="categorias/cooperativos.html"
-                        >
-                            <div
-                                class="tarjeta-imagen imagen-cooperativos"
-                                role="img"
-                                aria-label="Miniaturas sobre un tablero de aventura cooperativa"
-                            ></div>
+                    </div>
+<!-- Cooperativos -->
+                    <div class="col-12 col-md-6 col-xl-3">
+<article class="tarjeta categoria-cooperativos h-100">
+                        <a class="tarjeta-enlace" href="categorias/cooperativos.html">
+                            <div class="tarjeta-imagen imagen-cooperativos" role="img" aria-label="Miniaturas sobre un tablero de aventura cooperativa"></div>
 
                             <div class="tarjeta-contenido">
-                                <span
-                                    class="categoria-icono"
-                                    aria-hidden="true"
-                                >
+                                <span class="categoria-icono" aria-hidden="true">
                                     ⚑
                                 </span>
 
@@ -251,148 +186,12 @@
                     </article>
 
                 </div>
+</div>
             </div>
         </section>
 
     </main>
 
-    <footer class="pie">
-        <div class="contenedor pie-contenido">
-            <p>
-                <strong>TableFamily</strong>
-                <span class="pie-separador" aria-hidden="true">·</span>
-                Juegos que nos reúnen
-            </p>
-
-            <a href="#contenido">Volver arriba ↑</a>
-        </div>
-    </footer>
-    <script>
-    let efectoActivo = false;
-
-    document.addEventListener("click", function (evento) {
-        const enlace = evento.target.closest(".tarjeta-enlace");
-
-        if (!enlace) return;
-
-        // Permite abrir enlaces en otra pestaña.
-        if (
-            evento.button !== 0 ||
-            evento.ctrlKey ||
-            evento.metaKey ||
-            evento.shiftKey ||
-            evento.altKey
-        ) {
-            return;
-        }
-
-        const reducirMovimiento = window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches;
-
-        if (reducirMovimiento) return;
-
-        const imagen = enlace.querySelector(".tarjeta-imagen");
-        const titulo = enlace.querySelector("h3");
-
-        if (!imagen || !titulo) return;
-
-        evento.preventDefault();
-
-        if (efectoActivo) return;
-        efectoActivo = true;
-
-        const posicion = imagen.getBoundingClientRect();
-        const fondo = getComputedStyle(imagen).backgroundImage;
-
-        const portal = document.createElement("div");
-        portal.dataset.portal = "true";
-
-        Object.assign(portal.style, {
-            position: "fixed",
-            zIndex: "99999",
-            left: posicion.left + "px",
-            top: posicion.top + "px",
-            width: posicion.width + "px",
-            height: posicion.height + "px",
-            backgroundImage: fondo,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundColor: "#082747",
-            borderRadius: "18px",
-            overflow: "hidden"
-        });
-
-        portal.setAttribute("aria-hidden", "true");
-
-        const mensaje = document.createElement("div");
-        mensaje.textContent = "Explora " + titulo.textContent.trim();
-
-        Object.assign(mensaje.style, {
-            position: "absolute",
-            inset: "0",
-            display: "grid",
-            placeItems: "center",
-            padding: "24px",
-            background: "linear-gradient(transparent, rgba(4,24,45,0.8))",
-            color: "white",
-            fontFamily: "Georgia, serif",
-            fontSize: "clamp(2rem, 5vw, 4rem)",
-            fontWeight: "bold",
-            textAlign: "center"
-        });
-
-        portal.appendChild(mensaje);
-        document.body.appendChild(portal);
-
-        mensaje.animate(
-            [
-                { opacity: 0 },
-                { opacity: 0, offset: 0.4 },
-                { opacity: 1 }
-            ],
-            {
-                duration: 3000,
-                fill: "forwards"
-            }
-        );
-
-        const expansion = portal.animate(
-            [
-                {
-                    left: posicion.left + "px",
-                    top: posicion.top + "px",
-                    width: posicion.width + "px",
-                    height: posicion.height + "px",
-                    borderRadius: "18px"
-                },
-                {
-                    left: "0px",
-                    top: "0px",
-                    width: window.innerWidth + "px",
-                    height: window.innerHeight + "px",
-                    borderRadius: "0px"
-                }
-            ],
-            {
-                duration: 3000,
-                easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-                fill: "forwards"
-            }
-        );
-
-        expansion.finished.then(function () {
-            window.location.assign(enlace.href);
-        });
-    });
-
-    window.addEventListener("pageshow", function () {
-        document.querySelectorAll("[data-portal]").forEach(function (portal) {
-            portal.remove();
-        });
-
-        efectoActivo = false;
-    });
-</script>
+    <div id="footer-compartido"></div>
 </body>
 </html>

@@ -1,0 +1,338 @@
+/* TableFamily — Portada y tarjetas de categorías de index.html. */
+
+.portada {
+    position: relative;
+            isolation: isolate;
+            background-color: var(--azul);
+            background-image: url("../img/inicio.png");
+            background-size: cover;
+            background-position: center 58%;
+}
+
+.portada::before {
+    content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient( 90deg, rgb(4 24 45 / 97%) 0%, rgb(4 24 45 / 88%) 30%, rgb(4 24 45 / 48%) 58%, rgb(4 24 45 / 8%) 100% );
+}
+
+.portada-contenido {
+    position: relative;
+            display: flex;
+            align-items: center;
+            min-height: 490px;
+            padding-block: 65px 85px;
+}
+
+.portada-texto {
+    max-width: 640px;
+            color: var(--blanco);
+            animation: revelar-texto 850ms ease-out both;
+}
+
+.portada-descripcion {
+    max-width: 530px;
+            margin-bottom: 28px;
+            color: #f0f4fa;
+            font-size: 1.15rem;
+            line-height: 1.7;
+}
+
+.nota-portada {
+    position: absolute;
+            right: 0;
+            bottom: 32px;
+            margin: 0;
+            padding: 12px 22px;
+            border-radius: 5px;
+            background: #fff2d1;
+            color: var(--azul);
+            box-shadow: 0 8px 22px rgb(0 0 0 / 16%);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            font-weight: bold;
+            transform: rotate(-5deg);
+            animation: balancear-nota 1100ms ease-out both;
+}
+
+.categorias {
+    position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            padding-block: 38px 65px;
+            scroll-margin-top: 20px;
+            background: var(--crema);
+}
+
+.categorias::before, .categorias::after {
+    content: "";
+            position: absolute;
+            z-index: -1;
+            bottom: -100px;
+            width: 240px;
+            height: 220px;
+            border-radius: 45% 55% 35% 65%;
+}
+
+.categorias::before {
+    left: -170px;
+            background: var(--azul);
+            box-shadow: 52px 35px 0 var(--turquesa);
+            transform: rotate(-25deg);
+}
+
+.categorias::after {
+    right: -175px;
+            background: var(--turquesa);
+            box-shadow: -45px 50px 0 var(--azul);
+            transform: rotate(25deg);
+}
+
+.titulo-seccion {
+    display: grid;
+            grid-template-columns: auto auto auto;
+            justify-content: center;
+            align-items: center;
+            column-gap: 18px;
+            margin-bottom: 30px;
+            text-align: center;
+}
+
+.titulo-seccion h2 {
+    margin-bottom: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            line-height: 1.2;
+            letter-spacing: -1px;
+}
+
+.titulo-seccion p {
+    grid-column: 1 / -1;
+            margin: 8px 0 0;
+            color: var(--texto);
+            font-size: 1.05rem;
+}
+
+.adorno {
+    color: var(--naranja);
+            font-size: 2rem;
+}
+
+
+
+.tarjeta {
+    --acento-tarjeta: #ffd0a0;
+            overflow: hidden;
+            border: 1px solid var(--borde);
+            border-radius: var(--radio);
+            background: var(--blanco);
+            box-shadow: var(--sombra);
+            animation: subir-tarjeta 800ms ease-out both;
+            transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.tarjeta:nth-child(2) {
+    animation-delay: 100ms;
+}
+
+.tarjeta:nth-child(3) {
+    animation-delay: 200ms;
+}
+
+.tarjeta:nth-child(4) {
+    animation-delay: 300ms;
+}
+
+.tarjeta:hover {
+    transform: translateY(-8px);
+            box-shadow: 0 20px 36px rgb(8 39 71 / 16%);
+}
+
+.tarjeta:focus-within {
+    outline: 3px solid var(--naranja);
+            outline-offset: 4px;
+}
+
+.tarjeta-enlace {
+    display: flex;
+            flex-direction: column;
+            height: 100%;
+}
+
+.tarjeta-enlace:focus-visible {
+    outline: none;
+}
+
+.tarjeta-imagen {
+    height: 185px;
+            flex-shrink: 0;
+            background-color: var(--acento-tarjeta);
+            background-size: cover;
+            background-position: center;
+            transition: transform 450ms ease;
+}
+
+.imagen-estrategia {
+    background-image: url("../img/estrategia.png");
+}
+
+.imagen-familiares {
+    background-image: url("../img/familia.png");
+}
+
+.imagen-cartas {
+    background-image: url("../img/cartas.png");
+}
+
+.imagen-cooperativos {
+    background-image: url("../img/cooperativos.png");
+}
+
+.categoria-familiares {
+    --acento-tarjeta: #8ce1cf;
+}
+
+.categoria-cartas {
+    --acento-tarjeta: #ffda75;
+}
+
+.categoria-cooperativos {
+    --acento-tarjeta: #a9def4;
+}
+
+.tarjeta-contenido {
+    position: relative;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 32px 24px 24px;
+            background: var(--blanco);
+}
+
+.categoria-icono {
+    position: absolute;
+            top: -29px;
+            left: 20px;
+            display: grid;
+            place-items: center;
+            width: 58px;
+            height: 58px;
+            border: 4px solid var(--blanco);
+            border-radius: 50%;
+            background: var(--acento-tarjeta);
+            color: var(--azul-profundo);
+            font-size: 1.9rem;
+            line-height: 1;
+}
+
+.tarjeta h3 {
+    margin-bottom: 8px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.5rem;
+            line-height: 1.25;
+}
+
+.tarjeta p {
+    margin-bottom: 18px;
+            color: var(--texto);
+            font-size: 0.98rem;
+            line-height: 1.55;
+}
+
+.ver-juegos {
+    display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: auto;
+            color: var(--naranja-oscuro);
+            font-weight: 700;
+}
+
+.ver-juegos span {
+    transition: transform 200ms ease;
+}
+
+.tarjeta:hover .ver-juegos span {
+    transform: translateX(5px);
+}
+
+.tarjeta:hover .tarjeta-imagen {
+    transform: scale(1.06);
+}
+
+@media (max-width: 1050px) {
+    
+
+    .portada-texto {
+        max-width: 570px;
+    }
+
+    .tarjeta-imagen {
+        height: 220px;
+    }
+}
+
+@media (max-width: 650px) {
+    .portada {
+        background-position: 62% center;
+    }
+
+    .portada::before {
+        background: linear-gradient( 90deg, rgb(4 24 45 / 94%), rgb(4 24 45 / 68%) );
+    }
+
+    .portada-contenido {
+        min-height: 490px;
+                    padding-block: 50px 100px;
+    }
+
+    .portada-texto {
+        max-width: 100%;
+    }
+
+    .portada-descripcion {
+        font-size: 1rem;
+    }
+
+    .nota-portada {
+        right: 4px;
+                    bottom: 25px;
+                    padding: 9px 15px;
+                    font-size: 1rem;
+    }
+
+    .categorias {
+        padding-block: 35px 50px;
+    }
+
+    .titulo-seccion {
+        column-gap: 8px;
+    }
+
+    .titulo-seccion h2 {
+        font-size: clamp(1.6rem, 6.5vw, 2rem);
+    }
+
+    .titulo-seccion p {
+        font-size: 0.95rem;
+    }
+
+    .adorno {
+        font-size: 1.3rem;
+    }
+
+    
+
+    .tarjeta-imagen {
+        height: 220px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tarjeta:hover .tarjeta-imagen {
+        transform: none;
+    }
+}

@@ -1,0 +1,4 @@
+/* Fondo de Estrategia. */
+.cabecera-categoria.cabecera-estrategia {
+    background-image: linear-gradient(90deg, rgb(4 24 45 / 95%), rgb(4 24 45 / 65%)), url("../img/estrategia.png");
+}

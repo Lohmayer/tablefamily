@@ -6,54 +6,30 @@
 
     <title>Cooperativos | TableFamily</title>
 
-    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../vendor/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/categorias.css">
+    <link rel="stylesheet" href="../css/cooperativos.css">
+<link rel="stylesheet" href="../css/acceso.css">
+<link rel="stylesheet" href="../css/bootstrap-ajustes.css">
+<script src="../vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/componentes.js" defer></script>
+    <script src="../js/animaciones.js" defer></script>
+    <script src="../js/acceso.js" defer></script>
 </head>
 
-<body>
+<body data-pagina="categorias">
     <a class="saltar-contenido" href="#contenido">
         Saltar al contenido
     </a>
 
     <!-- ENCABEZADO -->
-    <header class="encabezado">
-        <div class="contenedor encabezado-contenido">
-
-            <a
-                class="marca"
-                href="../index.html"
-                aria-label="TableFamily, página de inicio"
-            >
-                <img
-                    src="../img/Logo.png"
-                    alt="TableFamily"
-                    width="280"
-                >
-            </a>
-
-            <nav class="menu" aria-label="Navegación principal">
-                <a class="menu-enlace" href="../index.html">
-                    Inicio
-                </a>
-
-                <a
-                    class="menu-enlace activo"
-                    href="../index.html#categorias"
-                >
-                    Categorías
-                </a>
-            </nav>
-
-        </div>
-    </header>
-
-    <main id="contenido">
+    <div id="encabezado-compartido"></div>
+<main id="contenido">
 
         <!-- PRESENTACIÓN DE LA CATEGORÍA -->
-        <section
-            class="cabecera-categoria cabecera-cooperativos"
-            aria-labelledby="titulo-cooperativos"
-        >
-            <div class="contenedor">
+        <section class="cabecera-categoria cabecera-cooperativos" aria-labelledby="titulo-cooperativos">
+            <div class="contenedor container">
                 <p class="etiqueta">
                     Juntos llegamos más lejos
                 </p>
@@ -69,13 +45,10 @@
             </div>
         </section>
 
-        <div class="contenedor catalogo-categoria">
+        <div class="contenedor catalogo-categoria container">
 
             <!-- NAVEGACIÓN ENTRE CATEGORÍAS -->
-            <nav
-                class="navegacion-categorias"
-                aria-label="Categorías de juegos"
-            >
+            <nav class="navegacion-categorias" aria-label="Categorías de juegos">
                 <a href="estrategia.html">
                     Estrategia
                 </a>
@@ -88,11 +61,7 @@
                     Cartas
                 </a>
 
-                <a
-                    class="categoria-actual"
-                    href="cooperativos.html"
-                    aria-current="page"
-                >
+                <a class="categoria-actual" href="cooperativos.html" aria-current="page">
                     Cooperativos
                 </a>
             </nav>
@@ -114,24 +83,17 @@
                     <p>3 juegos disponibles en el catálogo</p>
                 </div>
 
-                <div class="grilla-productos">
+                <div class="grilla-productos row g-4">
 
                     <!-- PANDEMIC -->
-                    <article
-                        class="producto"
-                        aria-labelledby="nombre-pandemic"
-                    >
+                    <div class="col-12 col-md-6 col-lg-4">
+<article class="producto h-100" aria-labelledby="nombre-pandemic">
                         <div class="producto-foto">
                             <span class="distintivo descuento">
                                 20 % de descuento
                             </span>
 
-                            <img
-                                src="../img/juego-pandemic.png"
-                                alt="Representación de Pandemic con mapa, peones y cubos de colores"
-                                width="600"
-                                height="450"
-                            >
+                            <img src="../img/juego-pandemic.png" alt="Representación de Pandemic con mapa, peones y cubos de colores" width="600" height="450" class="img-fluid">
                         </div>
 
                         <div class="producto-contenido">
@@ -167,22 +129,16 @@
                         </div>
                     </article>
 
-                    <!-- LA ISLA PROHIBIDA -->
-                    <article
-                        class="producto"
-                        aria-labelledby="nombre-isla"
-                    >
+                    </div>
+<!-- LA ISLA PROHIBIDA -->
+                    <div class="col-12 col-md-6 col-lg-4">
+<article class="producto h-100" aria-labelledby="nombre-isla">
                         <div class="producto-foto">
                             <span class="distintivo sin-descuento">
                                 Sin descuento
                             </span>
 
-                            <img
-                                src="../img/juego-isla-prohibida.png"
-                                alt="Representación de La Isla Prohibida con losetas de isla y tesoros"
-                                width="600"
-                                height="450"
-                            >
+                            <img src="../img/juego-isla-prohibida.png" alt="Representación de La Isla Prohibida con losetas de isla y tesoros" width="600" height="450" class="img-fluid">
                         </div>
 
                         <div class="producto-contenido">
@@ -213,22 +169,16 @@
                         </div>
                     </article>
 
-                    <!-- HANABI -->
-                    <article
-                        class="producto"
-                        aria-labelledby="nombre-hanabi"
-                    >
+                    </div>
+<!-- HANABI -->
+                    <div class="col-12 col-md-6 col-lg-4">
+<article class="producto h-100" aria-labelledby="nombre-hanabi">
                         <div class="producto-foto">
                             <span class="distintivo descuento">
                                 25 % de descuento
                             </span>
 
-                            <img
-                                src="../img/juego-hanabi.png"
-                                alt="Representación de Hanabi con cartas de fuegos artificiales y fichas"
-                                width="600"
-                                height="450"
-                            >
+                            <img src="../img/juego-hanabi.png" alt="Representación de Hanabi con cartas de fuegos artificiales y fichas" width="600" height="450" class="img-fluid">
                         </div>
 
                         <div class="producto-contenido">
@@ -266,6 +216,7 @@
                     </article>
 
                 </div>
+</div>
 
                 <p class="nota-catalogo">
                     Catálogo de demostración para una actividad académica.
@@ -275,10 +226,7 @@
             </section>
 
             <div class="regreso-catalogo">
-                <a
-                    class="boton-principal"
-                    href="../index.html#categorias"
-                >
+                <a class="boton-principal" href="../index.html#categorias">
                     <span aria-hidden="true">←</span>
                     Volver a las categorías
                 </a>
@@ -288,22 +236,6 @@
     </main>
 
     <!-- PIE DE PÁGINA -->
-    <footer class="pie">
-        <div class="contenedor pie-contenido">
-            <p>
-                <strong>TableFamily</strong>
-
-                <span class="pie-separador" aria-hidden="true">
-                    ·
-                </span>
-
-                Juegos que nos reúnen
-            </p>
-
-            <a href="../index.html">
-                Volver al inicio
-            </a>
-        </div>
-    </footer>
+    <div id="footer-compartido"></div>
 </body>
 </html>

@@ -1,0 +1,21 @@
+/* Se carga al final: identidad visual compatible con Bootstrap.
+   Las columnas y gutters de las tarjetas pertenecen a Bootstrap, no a este archivo. */
+.contenedor.container {--bs-gutter-x: 0; width: 90%; max-width: var(--ancho-contenido);}
+.encabezado-contenido.row {flex-direction: row; gap: 0;}
+.marca {max-width: 100%;}
+.menu {max-width: 100%;}
+.menu-enlace {display: inline-block;}
+.producto, .tarjeta {min-width: 0;}
+.tarjeta {position: relative;}
+/* Bootstrap normaliza títulos; recuperamos el peso del diseño inicial. */
+h1, h2, h3 {font-weight: 700;}
+/* El modal queda fuera del encabezado para que su z-index y su posición fija
+   no queden atrapados por la animación del header. */
+@media (max-width: 767.98px) {
+    .encabezado-catalogo {flex-direction: column; align-items: flex-start; gap: 10px;}
+    .introduccion-categoria {overflow-wrap: anywhere;}
+}
+/* Las columnas Bootstrap ahora envuelven las tarjetas; conserva el escalonado. */
+.grilla-categorias > :nth-child(2) .tarjeta, .grilla-productos > :nth-child(2) .producto {animation-delay: 100ms;}
+.grilla-categorias > :nth-child(3) .tarjeta, .grilla-productos > :nth-child(3) .producto {animation-delay: 200ms;}
+.grilla-categorias > :nth-child(4) .tarjeta {animation-delay: 300ms;}

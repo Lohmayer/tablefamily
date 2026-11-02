@@ -1,0 +1,89 @@
+/* Identidad TableFamily sobre los componentes de Bootstrap 5. */
+.boton-acceso {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 46px; padding: 10px 20px; border: 1px solid #efbd8f;
+    border-radius: 14px 5px 14px 14px; background: #ffe5cb; color: #773500;
+    font-weight: 700; box-shadow: 0 3px 10px rgb(184 67 0 / 6%);
+    transition: background-color 200ms ease, transform 200ms ease;
+}
+.boton-acceso:hover, .boton-acceso:focus-visible {background: #ffd3aa; color: #773500; border-color: #efbd8f; transform: translateY(-2px);}
+.boton-acceso:focus-visible {outline: 3px solid var(--naranja); outline-offset: 4px;}
+.acceso-dados {display: inline-flex; gap: 2px; color: #a94b08; font-size: 1.65rem; line-height: 1;}
+.acceso-dados span {display: inline-block;}
+.acceso-dados span:first-child {transform: rotate(-12deg);}
+.acceso-dados span:last-child {transform: rotate(12deg);}
+.boton-acceso:hover .acceso-dados span, .boton-acceso:focus-visible .acceso-dados span {animation: agitar-dado 650ms ease-in-out;}
+.boton-acceso:hover .acceso-dados span:last-child {animation-delay: 100ms; animation-direction: reverse;}
+@keyframes agitar-dado {
+    0%,100% {translate: 0 0; rotate: 0deg;}
+    30% {translate: 0 -4px; rotate: -18deg;}
+    65% {translate: 0 -2px; rotate: 18deg;}
+}
+#modal-acceso .modal-dialog {--bs-modal-width: 700px;}
+#modal-acceso .modal-content {border: 1px solid var(--borde); border-radius: 22px; background: var(--crema); color: var(--azul); box-shadow: 0 25px 80px rgb(0 0 0 / 25%);}
+#modal-acceso .modal-header {padding: 26px 26px 0;}
+#modal-acceso .modal-body {padding: 18px 26px 26px;}
+.modal-backdrop {--bs-backdrop-bg: #04182d; --bs-backdrop-opacity: .7;}
+.acceso-etiqueta {margin-bottom: 10px; color: var(--naranja-oscuro); font-size: .75rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;}
+#modal-acceso h2 {font-family: Georgia, serif; font-size: 2rem;}
+.acceso-introduccion {color: var(--texto); font-size: .95rem;}
+.acceso-opciones {margin-bottom: 24px; padding: 5px; border-radius: 14px; background: #f0e6d8;}
+.opcion-acceso {border: 0; border-radius: 10px; color: var(--azul); font-weight: 700;}
+.opcion-acceso.seleccionada {background: var(--blanco); color: var(--azul); box-shadow: 0 3px 10px rgb(8 39 71 / 8%);}
+.opcion-acceso:hover {background: #ffe0bd; color: var(--azul);}
+.form-acceso[hidden] {display: none !important;}
+.campo-acceso .form-label {font-size: .9rem; font-weight: 700;}
+.campo-acceso .form-control {min-height: 46px; border-radius: 10px; color: var(--azul);}
+.campo-acceso .form-control:focus {border-color: var(--turquesa); box-shadow: 0 0 0 .2rem rgb(22 166 165 / 18%);}
+.campo-opcional {color: var(--texto); font-size: .8rem; font-weight: 400;}
+.acceso-enviar, .acceso-limpiar {flex: 1; padding: 12px 18px; border-radius: 999px; font-weight: 700;}
+.acceso-enviar {background: var(--naranja); color: var(--azul-profundo); border-color: var(--naranja);}
+.acceso-enviar:hover {background: #ff963e; color: var(--azul-profundo); border-color: #ff963e;}
+.acceso-limpiar {border-color: #bcc7d2; color: var(--azul);}
+.acceso-limpiar:hover {background: #f0e6d8; border-color: #bcc7d2;}
+.acceso-resultado {margin: 0; color: var(--texto); font-size: .9rem;}
+.acceso-resultado:empty {display: none;}
+.reglas-clave {display: grid; gap: 6px; margin: 8px 0 0; padding: 0; list-style: none;}
+.reglas-clave li, .regla-confirmacion {display: flex; align-items: baseline; gap: 8px; color: #b42318; font-size: .82rem; line-height: 1.5; transition: color 180ms ease;}
+.regla-confirmacion {margin: 8px 0 0;}
+.regla-icono {flex-shrink: 0; width: 16px; text-align: center; font-weight: 800;}
+.reglas-clave li.cumplida, .regla-confirmacion.cumplida {color: #1759a3;}
+@media (max-width: 575.98px) {
+    #modal-acceso .modal-header {padding: 22px 18px 0;}
+    #modal-acceso .modal-body {padding: 16px 18px 22px;}
+}
+@media (prefers-reduced-motion: reduce) {
+    .boton-acceso .acceso-dados span {animation: none;}
+    .boton-acceso:hover {transform: none;}
+    .boton-acceso, .reglas-clave li, .regla-confirmacion {transition: none;}
+}
+/* Registro incompleto: botón desactivado. */
+#boton-validar-registro:disabled {
+    background: #eadbcd;
+    border-color: #d7c5b5;
+    color: #74665b;
+    opacity: 1;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Registro completo: botón naranja activo. */
+#boton-validar-registro:not(:disabled) {
+    background: var(--naranja);
+    border-color: var(--naranja);
+    color: var(--azul-profundo);
+}
+
+#boton-validar-registro:not(:disabled):hover {
+    background: #ff963e;
+    border-color: #ff963e;
+}
+#form-registro button[type="submit"]:disabled {
+    pointer-events: none;
+    background: #eadbcd;
+    border-color: #d7c5b5;
+    color: #74665b;
+    opacity: 1;
+    box-shadow: none;
+    transform: none;
+}
