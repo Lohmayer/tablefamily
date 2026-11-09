@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mi cuenta | TableFamily</title>
+        <link rel="stylesheet" href="../vendor/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/estilos.css">
+        <link rel="stylesheet" href="../css/acceso.css">
+        <link rel="stylesheet" href="../css/panel.css">
+        <link rel="stylesheet" href="../css/carrito.css">
+        <link rel="stylesheet" href="../css/bootstrap-ajustes.css">
+        <script src="../vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
+        <script src="../js/componentes.js" defer></script>
+        <script src="../js/animaciones.js" defer></script>
+        <script src="../js/aplicacion.js" type="module"></script>
+    </head>
+    <body data-pagina="perfil">
+        <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+        <div id="encabezado-compartido"></div>
+        <main id="contenido" class="contenedor container pagina-cuenta">
+            <section id="acceso-requerido" class="panel-cuenta" hidden>
+                <h1>Acceso a tu cuenta</h1>
+                <p id="mensaje-acceso" role="status">Inicia sesión para continuar.</p>
+                <button type="button" class="btn boton-acceso" data-abrir-acceso aria-controls="modal-acceso" aria-haspopup="dialog">Iniciar sesión</button>
+                <a class="btn acceso-limpiar ms-2" href="../index.html">Volver al inicio</a>
+            </section>
+            <section id="contenido-perfil" hidden>
+                <p class="etiqueta">Tu espacio en TableFamily</p>
+                <h1>Mi cuenta</h1>
+                <p id="saludo-perfil" class="aviso-cuenta"></p>
+                <div class="panel-cuenta">
+                    <h2>Mis datos</h2>
+                    <form id="form-perfil" class="row g-3" novalidate>
+                        <div class="col-12 col-md-6 campo-acceso">
+                            <label for="perfil-nombre" class="form-label">Nombre completo</label>
+                            <input id="perfil-nombre" name="nombre" type="text" autocomplete="name" class="form-control" aria-describedby="error-perfil-nombre" required>
+                            <div id="error-perfil-nombre" class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-md-6 campo-acceso">
+                            <label for="perfil-usuario" class="form-label">Nombre de usuario</label>
+                            <input id="perfil-usuario" name="usuario" type="text" autocomplete="username" class="form-control" aria-describedby="error-perfil-usuario" required>
+                            <div id="error-perfil-usuario" class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-md-6 campo-acceso">
+                            <label for="perfil-correo" class="form-label">Correo electrónico</label>
+                            <input id="perfil-correo" name="correo" type="email" autocomplete="email" class="form-control" aria-describedby="error-perfil-correo" required>
+                            <div id="error-perfil-correo" class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-md-6 campo-acceso">
+                            <label for="perfil-nacimiento" class="form-label">Fecha de nacimiento</label>
+                            <input id="perfil-nacimiento" name="nacimiento" type="date" autocomplete="bday" class="form-control" aria-describedby="error-perfil-nacimiento" required>
+                            <div id="error-perfil-nacimiento" class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 campo-acceso">
+                            <label for="perfil-direccion" class="form-label">Dirección de despacho <span class="campo-opcional">(opcional)</span>
+                            </label>
+                            <input id="perfil-direccion" name="direccion" type="text" autocomplete="street-address" class="form-control">
+                        </div>
+                        <div class="col-12 d-flex flex-wrap gap-2 mt-4">
+                            <button type="submit" class="btn acceso-enviar">Guardar cambios</button>
+                            <button type="reset" class="btn acceso-limpiar">Descartar cambios</button>
+                        </div>
+                        <div class="col-12">
+                            <p class="acceso-resultado" role="status" aria-live="polite"></p>
+                        </div>
+                    </form>
+                </div>
+                <div class="d-flex flex-wrap gap-2 mt-4">
+                    <a class="btn boton-acceso" href="../index.html#categorias">Explorar juegos</a>
+                    <a href="compras.html" class="btn acceso-limpiar">Mis compras</a><a href="carrito.html" class="btn acceso-limpiar">Ver carrito</a><button class="btn acceso-limpiar" type="button" data-cerrar-sesion>Cerrar sesión</button>
+                </div>
+            </section>
+        </main>
+        <div id="footer-compartido"></div>
+    </body>
+</html>

@@ -24,6 +24,7 @@ async function cargarComponente(id, archivo) {
                 contenedor.querySelector('[data-menu="categorias"]').href = '#categorias';
             }
         }
+        document.dispatchEvent(new CustomEvent('componentes:listos', { detail: { id } }));
     } catch (error) {
         console.error(error);
         const p = document.createElement('p');

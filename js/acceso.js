@@ -1,376 +1,118 @@
-/* Validación frontend: no guarda cuentas ni contraseñas. */
+/* Vista de acceso: los datos y las reglas viven en servicios/ y validaciones/. */
+import { iniciarSesion } from './servicios/sesion.js';
+import { registrarUsuario } from './servicios/usuarios.js';
+import { datosFormulario, erroresFormulario, mostrarErrores, actualizarEstadoRegistro, limpiarEstado } from './vistas/formularios.js';
 
-// CAMBIO ENTRE INICIAR SESIÓN Y ABRIR CUENTA
-function cambiarVistaAcceso(vista) {
-    const modal = document.getElementById("modal-acceso");
-
+const raiz = new URL('../', import.meta.url);
+function cambiarVista(vista) {
+    const modal = document.getElementById('modal-acceso');
     if (!modal) return;
-
-    const registro = vista === "registro";
-
-    modal.querySelector("#form-login").hidden = registro;
-    modal.querySelector("#form-registro").hidden = !registro;
-
-    modal.querySelector("#titulo-acceso").textContent =
-        registro ? "Abrir cuenta" : "Iniciar sesión";
-
-    modal.querySelectorAll("[data-vista-acceso]").forEach(function (boton) {
+    for (const nombre of ['login', 'registro', 'recuperacion']) {
+        modal.querySelector('#form-' + nombre).hidden = nombre !== vista;
+    }
+    modal.querySelector('#titulo-acceso').textContent = {
+        login: 'Iniciar sesión', registro: 'Abrir cuenta', recuperacion: 'Recuperar contraseña'
+    }[vista];
+    modal.querySelectorAll('[data-vista-acceso]').forEach(boton => {
         const activo = boton.dataset.vistaAcceso === vista;
-
-        boton.classList.toggle("seleccionada", activo);
-        boton.setAttribute("aria-pressed", String(activo));
+        boton.classList.toggle('seleccionada', activo);
+        if (boton.hasAttribute('aria-pressed')) boton.setAttribute('aria-pressed', String(activo));
     });
-
-    modal.querySelector(".modal-body").scrollTop = 0;
-
+    modal.querySelector('.modal-body').scrollTop = 0;
     actualizarEstadoRegistro();
-
     bootstrap.Modal.getInstance(modal)?.handleUpdate();
 }
-
-// MENSAJES Y ESTADOS BOOTSTRAP
-function mostrarErrorAcceso(campo, mensaje) {
-    const invalido = Boolean(mensaje);
-
-    campo.setAttribute("aria-invalid", String(invalido));
-    campo.classList.toggle("is-invalid", invalido);
-    campo.classList.toggle("is-valid", !invalido);
-
-    const error = document.getElementById("error-" + campo.id);
-
-    if (error) {
-        error.textContent = mensaje;
-    }
-}
-
-// EDAD MÍNIMA: 13 AÑOS CUMPLIDOS
-function cumpleEdadAcceso(valor, hoy = new Date()) {
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(valor)) return false;
-
-    const [anio, mes, dia] = valor.split("-").map(Number);
-    const nacimiento = new Date(anio, mes - 1, dia);
-
-    if (
-        nacimiento.getFullYear() !== anio ||
-        nacimiento.getMonth() !== mes - 1 ||
-        nacimiento.getDate() !== dia ||
-        nacimiento > hoy
-    ) {
-        return false;
-    }
-
-    let edad = hoy.getFullYear() - anio;
-
-    const aunNoCumple =
-        hoy.getMonth() < mes - 1 ||
-        (
-            hoy.getMonth() === mes - 1 &&
-            hoy.getDate() < dia
-        );
-
-    if (aunNoCumple) edad--;
-
-    return edad >= 13;
-}
-
-// VALIDACIÓN INDIVIDUAL DE CAMPOS
-function errorCampoAcceso(campo) {
-    const valor = campo.value;
-
-    if (campo.required && !valor.trim()) {
-        return "Este campo es obligatorio.";
-    }
-
-    if (
-        campo.type === "email" &&
-        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valor.trim())
-    ) {
-        return "Ingresa un correo válido, por ejemplo nombre@correo.cl.";
-    }
-
-    if (campo.id === "registro-clave") {
-        if (valor.length < 6 || valor.length > 18) {
-            return "La contraseña debe tener entre 6 y 18 caracteres.";
-        }
-
-        if (!/[A-ZÁÉÍÓÚÜÑ]/.test(valor)) {
-            return "Incluye al menos una letra mayúscula.";
-        }
-
-        if (!/[0-9]/.test(valor)) {
-            return "Incluye al menos un número.";
-        }
-    }
-
-    if (campo.id === "registro-confirmacion") {
-        const clave = document.getElementById("registro-clave");
-
-        if (!clave || valor !== clave.value) {
-            return "Las contraseñas no coinciden.";
-        }
-    }
-
-    if (
-        campo.id === "registro-nacimiento" &&
-        !cumpleEdadAcceso(valor)
-    ) {
-        return "Ingresa una fecha válida. Debes tener 13 años cumplidos o más.";
-    }
-
-    return "";
-}
-
-// REQUISITOS DE CONTRASEÑA EN ROJO O AZUL
-function actualizarReglaClave(id, cumple) {
-    const regla = document.getElementById(id);
-
-    if (!regla) return;
-
-    regla.classList.toggle("cumplida", cumple);
-
-    const icono = regla.querySelector(".regla-icono");
-
-    if (icono) {
-        icono.textContent = cumple ? "✓" : "○";
-    }
-}
-
-function actualizarRequisitosClave() {
-    const clave = document.getElementById("registro-clave");
-    const confirmacion = document.getElementById("registro-confirmacion");
-
-    if (!clave || !confirmacion) return;
-
-    const valor = clave.value;
-
-    actualizarReglaClave(
-        "regla-longitud",
-        valor.length >= 6 && valor.length <= 18
-    );
-
-    actualizarReglaClave(
-        "regla-mayuscula",
-        /[A-ZÁÉÍÓÚÜÑ]/.test(valor)
-    );
-
-    actualizarReglaClave(
-        "regla-numero",
-        /[0-9]/.test(valor)
-    );
-
-    actualizarReglaClave(
-        "ayuda-confirmacion",
-        valor.length > 0 && valor === confirmacion.value
-    );
-}
-
-// BLOQUEO DEL BOTÓN QUE ESTÁ DENTRO DEL REGISTRO
-function actualizarBotonRegistro() {
-    const formulario = document.getElementById("form-registro");
-
-    if (!formulario) return false;
-
-    const boton = formulario.querySelector('button[type="submit"]');
-
-    if (!boton) return false;
-
-    const idsObligatorios = [
-        "registro-nombre",
-        "registro-usuario",
-        "registro-correo",
-        "registro-clave",
-        "registro-confirmacion",
-        "registro-nacimiento"
-    ];
-
-    const todoValido = idsObligatorios.every(function (id) {
-        const campo = formulario.querySelector("#" + id);
-
-        return (
-            campo !== null &&
-            campo.value.trim() !== "" &&
-            errorCampoAcceso(campo) === ""
-        );
+function prepararModal() {
+    const modal = document.getElementById('modal-acceso');
+    if (!modal) return;
+    actualizarEstadoRegistro();
+    if (modal.dataset.preparado) return;
+    modal.dataset.preparado = 'true';
+    modal.addEventListener('shown.bs.modal', () => {
+        modal.querySelector('form:not([hidden]) input')?.focus();
+        actualizarEstadoRegistro();
     });
-
-    boton.id = "boton-validar-registro";
-    boton.disabled = !todoValido;
-
-    return todoValido;
+    modal.addEventListener('hidden.bs.modal', () => {
+        modal.querySelectorAll('form').forEach(form => form.reset());
+        document.querySelector('[data-abrir-acceso]:not([hidden])')?.focus();
+    });
 }
-
-function actualizarEstadoRegistro() {
-    actualizarRequisitosClave();
-    actualizarBotonRegistro();
-}
-
-// ABRIR MODAL Y CAMBIAR FORMULARIO
-document.addEventListener("click", function (evento) {
-    const abrir = evento.target.closest("[data-abrir-acceso]");
-
-    if (abrir) {
-        const modal = document.getElementById("modal-acceso");
-
-        if (!modal || modal.classList.contains("show")) return;
-
-        cambiarVistaAcceso("login");
-
-        if (!modal.dataset.preparado) {
-            modal.addEventListener("shown.bs.modal", function () {
-                actualizarEstadoRegistro();
-                modal.querySelector("#login-usuario")?.focus();
-            });
-
-            modal.addEventListener("hidden.bs.modal", function () {
-                modal.querySelectorAll("form").forEach(function (formulario) {
-                    formulario.reset();
-                });
-
-                actualizarEstadoRegistro();
-
-                document.querySelector("[data-abrir-acceso]")?.focus();
-            });
-
-            modal.dataset.preparado = "true";
-        }
-
-        bootstrap.Modal.getOrCreateInstance(modal).show();
+document.addEventListener('componentes:listos', prepararModal);
+prepararModal();
+document.addEventListener('click', evento => {
+    if (evento.target.closest('[data-abrir-acceso]')) {
+        prepararModal();
+        cambiarVista('login');
+        bootstrap.Modal.getOrCreateInstance(document.getElementById('modal-acceso')).show();
         return;
     }
-
-    const opcion = evento.target.closest("[data-vista-acceso]");
-
-    if (opcion) {
-        cambiarVistaAcceso(opcion.dataset.vistaAcceso);
+    const opcion = evento.target.closest('[data-vista-acceso]');
+    if (opcion) cambiarVista(opcion.dataset.vistaAcceso);
+    const demo = evento.target.closest('[data-cuenta-demo]');
+    if (demo) {
+        document.getElementById('login-usuario').value = demo.dataset.cuentaDemo;
+        document.getElementById('login-clave').value = demo.dataset.cuentaDemo === 'admin' ? 'Admin123' : 'Cliente123';
     }
 });
-
-// VALIDAR AL ENVIAR: TAMBIÉN CONTROLA EL ENVÍO CON ENTER
-document.addEventListener("submit", function (evento) {
-    const formulario = evento.target;
-
-    if (!formulario.matches(".form-acceso")) return;
-
+document.addEventListener('submit', async evento => {
+    const form = evento.target;
+    if (!form.matches('#form-login, #form-registro, #form-recuperacion')) return;
     evento.preventDefault();
-
-    formulario.dataset.validado = "true";
-
-    let primerError = null;
-
-    formulario.querySelectorAll("input[required]").forEach(function (campo) {
-        const error = errorCampoAcceso(campo);
-
-        mostrarErrorAcceso(campo, error);
-
-        if (error && !primerError) {
-            primerError = campo;
-        }
-    });
-
-    const resultado = formulario.querySelector(".acceso-resultado");
-
-    const registroIncompleto =
-        formulario.id === "form-registro" &&
-        !actualizarBotonRegistro();
-
-    if (primerError || registroIncompleto) {
-        resultado.textContent = "Completa correctamente todos los campos obligatorios.";
-        primerError?.focus();
-
-        // No se continúa ni se envía información.
+    if (form.dataset.enviando === 'true') return;
+    form.dataset.validado = 'true';
+    const errores = erroresFormulario(form);
+    mostrarErrores(form, errores);
+    const salida = form.querySelector('.acceso-resultado');
+    salida.classList.remove('text-danger');
+    if (Object.keys(errores).length) {
+        salida.textContent = 'Completa correctamente los campos indicados.';
+        form.querySelector('.is-invalid')?.focus();
+        actualizarEstadoRegistro();
         return;
     }
-
-    resultado.textContent = formulario.id === "form-registro"
-        ? "Datos válidos. La creación de la cuenta estará disponible al conectar el servidor."
-        : "Campos válidos. El inicio de sesión estará disponible al conectar el servidor.";
-});
-
-// ACTUALIZAR MIENTRAS SE ESCRIBE O CAMBIA UN CAMPO
-function procesarCambioAcceso(evento) {
-    const campo = evento.target;
-
-    if (!campo.matches(".form-acceso input")) return;
-
-    const formulario = campo.form;
-
-    formulario.querySelector(".acceso-resultado").textContent = "";
-
-    if (formulario.id === "form-registro") {
+    const boton = form.querySelector('[type="submit"]');
+    form.dataset.enviando = 'true';
+    boton.disabled = true;
+    try {
+        const datos = datosFormulario(form);
+        if (form.id === 'form-login') {
+            const cuenta = await iniciarSesion(datos.usuario, datos.clave);
+            bootstrap.Modal.getInstance(document.getElementById('modal-acceso'))?.hide();
+            const destinoCliente = { carrito: 'paginas/carrito.html', compras: 'paginas/compras.html' }[document.body.dataset.pagina] ?? 'paginas/perfil.html';
+            location.assign(new URL(cuenta.rol === 'administrador' ? 'paginas/administracion.html' : destinoCliente, raiz));
+        } else if (form.id === 'form-registro') {
+            const cuenta = await registrarUsuario(datos);
+            form.reset();
+            cambiarVista('login');
+            document.getElementById('login-usuario').value = cuenta.usuario;
+            document.querySelector('#form-login .acceso-resultado').textContent = 'Cuenta de demostración creada. Ya puedes iniciar sesión con tu contraseña.';
+        } else {
+            salida.textContent = 'Solicitud de recuperación validada. En una aplicación real recibirías las instrucciones si el correo está registrado. Esta demostración no envía correos.';
+        }
+    } catch (error) {
+        salida.classList.add('text-danger');
+        salida.textContent = error.message;
+    } finally {
+        delete form.dataset.enviando;
+        boton.disabled = false;
         actualizarEstadoRegistro();
     }
-
-    // Los errores de campo se actualizan después del primer intento.
-    // Los requisitos y el botón se actualizan desde el principio.
-    if (!formulario.dataset.validado) return;
-
-    if (campo.required) {
-        mostrarErrorAcceso(campo, errorCampoAcceso(campo));
-    }
-
-    if (campo.id === "registro-clave") {
-        const confirmacion = document.getElementById("registro-confirmacion");
-
-        if (confirmacion) {
-            mostrarErrorAcceso(
-                confirmacion,
-                errorCampoAcceso(confirmacion)
-            );
-        }
-    }
+});
+function procesarCambio(evento) {
+    const campo = evento.target;
+    if (!campo.matches('.form-acceso input')) return;
+    const form = campo.form;
+    form.querySelector('.acceso-resultado').textContent = '';
+    form.querySelector('.acceso-resultado').classList.remove('text-danger');
+    if (form.id === 'form-registro') actualizarEstadoRegistro();
+    if (form.dataset.validado) mostrarErrores(form, erroresFormulario(form));
 }
-
-document.addEventListener("input", procesarCambioAcceso);
-document.addEventListener("change", procesarCambioAcceso);
-
-// LIMPIAR DATOS, ERRORES Y ESTADOS
-document.addEventListener("reset", function (evento) {
-    const formulario = evento.target;
-
-    if (!formulario.matches(".form-acceso")) return;
-
-    delete formulario.dataset.validado;
-
-    formulario.querySelectorAll("input").forEach(function (campo) {
-        campo.removeAttribute("aria-invalid");
-        campo.classList.remove("is-valid", "is-invalid");
-    });
-
-    formulario.querySelectorAll(".invalid-feedback").forEach(function (error) {
-        error.textContent = "";
-    });
-
-    formulario.querySelector(".acceso-resultado").textContent = "";
-
-    if (formulario.id === "form-registro") {
-        const boton = formulario.querySelector('button[type="submit"]');
-
-        if (boton) {
-            boton.disabled = true;
-        }
-    }
-
-    // El evento reset ocurre antes de que se restablezcan los valores.
+document.addEventListener('input', procesarCambio);
+document.addEventListener('change', procesarCambio);
+document.addEventListener('reset', evento => {
+    const form = evento.target;
+    if (!form.matches('.form-acceso')) return;
+    limpiarEstado(form);
+    if (form.id === 'form-registro') form.querySelector('[type="submit"]').disabled = true;
     requestAnimationFrame(actualizarEstadoRegistro);
 });
-
-// INICIALIZACIÓN: EL ENCABEZADO SE CARGA CON FETCH
-function prepararRegistroInicial() {
-    if (!document.getElementById("form-registro")) return false;
-
-    actualizarEstadoRegistro();
-    return true;
-}
-
-if (!prepararRegistroInicial()) {
-    const observadorRegistro = new MutationObserver(function () {
-        if (prepararRegistroInicial()) {
-            observadorRegistro.disconnect();
-        }
-    });
-
-    observadorRegistro.observe(document.documentElement, {
-        childList: true,
-        subtree: true
-    });
-}

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Administración | TableFamily</title>
+        <link rel="stylesheet" href="../vendor/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/estilos.css">
+        <link rel="stylesheet" href="../css/acceso.css">
+        <link rel="stylesheet" href="../css/panel.css">
+        <link rel="stylesheet" href="../css/carrito.css">
+        <link rel="stylesheet" href="../css/bootstrap-ajustes.css">
+        <script src="../vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
+        <script src="../js/componentes.js" defer></script>
+        <script src="../js/animaciones.js" defer></script>
+        <script src="../js/aplicacion.js" type="module"></script>
+    </head>
+    <body data-pagina="administracion">
+        <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+        <div id="encabezado-compartido"></div>
+        <main id="contenido" class="contenedor container pagina-cuenta">
+            <section id="acceso-requerido" class="panel-cuenta" hidden>
+                <h1>Acceso a tu cuenta</h1>
+                <p id="mensaje-acceso" role="status">Inicia sesión para continuar.</p>
+                <button type="button" class="btn boton-acceso" data-abrir-acceso aria-controls="modal-acceso" aria-haspopup="dialog">Iniciar sesión</button>
+                <a class="btn acceso-limpiar ms-2" href="../index.html">Volver al inicio</a>
+            </section>
+            <section id="contenido-administracion" hidden>
+                <p class="etiqueta">Administración</p>
+                <h1>Panel de TableFamily</h1>
+                <p class="aviso-cuenta">Gestiona los juegos, sus promociones y el inventario de TableFamily.</p>
+                <div class="row g-4 mb-4">
+                    <div class="col-12 col-md-6">
+                        <div class="panel-cuenta">
+                            <h2>Juegos publicados</h2>
+                            <p id="total-productos" class="dato-panel mb-0"></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="panel-cuenta">
+                            <h2>Cuentas registradas</h2>
+                            <p id="total-usuarios" class="dato-panel mb-0"></p>
+                        </div>
+                    </div>
+                </div>
+                <p id="resumen-inventario" class="aviso-cuenta mb-4" role="status"></p>
+                <div class="panel-cuenta mb-4">
+                    <h2>Productos e inventario</h2>
+                    <div class="d-flex flex-wrap gap-2 align-items-center justify-content-between mb-3">
+                        <p class="aviso-cuenta mb-0">Los cambios se reflejan en las categorías de la tienda.</p>
+                        <button class="btn acceso-enviar flex-grow-0" type="button" id="agregar-producto">Agregar juego</button>
+                    </div>
+                    <form id="filtros-inventario" class="row g-3 mb-3" role="search" aria-label="Filtrar inventario">
+                        <div class="col-12 col-md-5">
+                            <label for="buscar-producto" class="form-label">Buscar juego</label>
+                            <input class="form-control" type="search" id="buscar-producto" placeholder="Nombre del juego">
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label for="filtrar-categoria" class="form-label">Categoría</label>
+                            <select class="form-select" id="filtrar-categoria">
+                                <option value="">Todas las categorías</option>
+                                <option value="estrategia">Estrategia</option>
+                                <option value="familiares">Familiares</option>
+                                <option value="cartas">Cartas</option>
+                                <option value="cooperativos">Cooperativos</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label for="filtrar-estado" class="form-label">Publicación</label>
+                            <select class="form-select" id="filtrar-estado">
+                                <option value="todos">Todos</option>
+                                <option value="publicados">Publicados</option>
+                                <option value="retirados">Retirados</option>
+                            </select>
+                        </div>
+                    </form>
+                    <div class="table-responsive" tabindex="0" role="region" aria-label="Catálogo de juegos">
+                        <table class="table tabla-panel">
+                            <caption>Inventario de la tienda. Retirar oculta el juego del catálogo; puedes volver a publicarlo.</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Juego</th>
+                                    <th scope="col">Categoría</th>
+                                    <th scope="col">Precio normal</th>
+                                    <th scope="col">Descuento</th>
+                                    <th scope="col">Precio final</th>
+                                    <th scope="col">Stock</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabla-productos"></tbody>
+                        </table>
+                    </div>
+                    <p id="resultado-inventario" class="resultado-inventario mt-3 mb-0" role="status" aria-live="polite"></p>
+                </div>
+                <div class="panel-cuenta">
+                    <h2>Usuarios</h2>
+                    <p class="aviso-cuenta">Edita los datos de clientes o cambia el estado de sus cuentas. Las compras se conservan.</p>
+                    <p id="resultado-usuarios" role="status" aria-live="polite"></p>
+                    <div class="table-responsive" tabindex="0" role="region" aria-label="Usuarios de la tienda">
+                        <table class="table tabla-panel">
+                            <caption>Cuentas de demostración registradas en la tienda.</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Usuario</th>
+                                    <th scope="col">Correo</th>
+                                    <th scope="col">Rol</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabla-usuarios"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="panel-cuenta mt-4">
+                    <h2>Pedidos de la tienda</h2>
+                    <p class="aviso-cuenta">Compras confirmadas por los clientes, con sus precios al momento de comprar.</p>
+                    <div id="lista-pedidos-admin" class="d-grid gap-3"></div>
+                </div>
+            </section>
+        </main>
+        <div id="footer-compartido"></div>
+        <div class="modal fade" id="modal-producto" tabindex="-1" aria-labelledby="titulo-producto" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                <div class="modal-content editor-producto">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs-4" id="titulo-producto">Agregar juego</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar editor"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form-producto" class="row g-3" novalidate>
+                            <input type="hidden" id="producto-id" name="id">
+                            <div class="col-12 col-md-7">
+                                <label for="producto-nombre" class="form-label">Nombre del juego</label>
+                                <input class="form-control" id="producto-nombre" name="nombre" maxlength="100" aria-describedby="error-producto-nombre" required>
+                                <div class="invalid-feedback" id="error-producto-nombre"></div>
+                            </div>
+                            <div class="col-12 col-md-5">
+                                <label for="producto-categoria" class="form-label">Categoría</label>
+                                <select class="form-select" id="producto-categoria" name="categoria" aria-describedby="error-producto-categoria" required>
+                                    <option value="">Seleccionar categoría</option>
+                                    <option value="estrategia">Estrategia</option>
+                                    <option value="familiares">Familiares</option>
+                                    <option value="cartas">Cartas</option>
+                                    <option value="cooperativos">Cooperativos</option>
+                                </select>
+                                <div class="invalid-feedback" id="error-producto-categoria"></div>
+                            </div>
+                            <div class="col-12">
+                                <label for="producto-descripcion" class="form-label">Descripción</label>
+                                <textarea class="form-control" id="producto-descripcion" name="descripcion" rows="3" maxlength="1000" aria-describedby="error-producto-descripcion" required></textarea>
+                                <div class="invalid-feedback" id="error-producto-descripcion"></div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <label for="producto-precio" class="form-label">Precio normal en CLP</label>
+                                <input class="form-control" id="producto-precio" name="precio" type="number" min="1" max="1000000000" step="1" inputmode="numeric" aria-describedby="error-producto-precio" required>
+                                <div class="invalid-feedback" id="error-producto-precio"></div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <label for="producto-descuento" class="form-label">Descuento (%)</label>
+                                <input class="form-control" id="producto-descuento" name="descuento" type="number" min="0" max="100" step="1" value="0" inputmode="numeric" aria-describedby="error-producto-descuento" required>
+                                <div class="invalid-feedback" id="error-producto-descuento"></div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <label for="producto-stock" class="form-label">Stock disponible</label>
+                                <input class="form-control" id="producto-stock" name="stock" type="number" min="0" max="1000000" step="1" value="0" inputmode="numeric" aria-describedby="error-producto-stock" required>
+                                <div class="invalid-feedback" id="error-producto-stock"></div>
+                            </div>
+                            <div class="col-12 col-md-8">
+                                <label for="producto-imagen" class="form-label">Imagen del juego</label>
+                                <select class="form-select" id="producto-imagen" name="imagen" aria-describedby="ayuda-imagen error-producto-imagen" required>
+                                    <option value="">Seleccionar imagen</option>
+                                </select>
+                                <small class="form-text" id="ayuda-imagen">Elige una imagen existente o sube una foto desde tu computador.</small>
+                                <label for="archivo-imagen-producto" class="form-label mt-3">Subir foto desde mi computador</label>
+                                <input class="form-control" id="archivo-imagen-producto" type="file" accept="image/png,image/jpeg,image/webp" aria-describedby="ayuda-archivo-producto estado-archivo-producto">
+                                <small class="form-text" id="ayuda-archivo-producto">PNG, JPG o WebP de hasta 5 MB. La imagen se ajusta para guardarla en esta demostración.</small>
+                                <p id="estado-archivo-producto" class="mt-2 mb-0" role="status" aria-live="polite"></p>
+                                <div class="invalid-feedback" id="error-producto-imagen"></div>
+                                <p class="mt-3 mb-0">Precio final: <output id="precio-final-producto" class="precio-previsto" aria-live="polite">—</output>
+                                </p>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <img id="vista-imagen-producto" class="vista-imagen-producto img-fluid" alt="Vista previa de la imagen seleccionada" hidden>
+                            </div>
+                            <div class="col-12">
+                                <p id="resultado-producto" class="resultado-inventario mb-0" role="status" aria-live="polite"></p>
+                            </div>
+                            <div class="col-12 d-flex flex-wrap gap-2">
+                                <button class="btn acceso-enviar" type="submit" id="guardar-producto">Guardar juego</button>
+                                <button class="btn acceso-limpiar" type="button" data-bs-dismiss="modal">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal-publicacion" tabindex="-1" aria-labelledby="titulo-publicacion" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content editor-producto">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs-4" id="titulo-publicacion">Cambiar publicación</h2>
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Cerrar confirmación"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="mensaje-publicacion"></p>
+                        <p id="error-publicacion" class="text-danger" role="status"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn acceso-limpiar" type="button" data-bs-dismiss="modal">Cancelar</button>
+                        <button class="btn acceso-enviar" type="button" id="confirmar-publicacion">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal-usuario" tabindex="-1" aria-labelledby="titulo-usuario" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                <div class="modal-content editor-producto">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs-4" id="titulo-usuario">Editar cliente</h2>
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Cerrar editor de cliente"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form-usuario-admin" class="row g-3" novalidate>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label" for="cliente-nombre">Nombre completo</label>
+                                <input class="form-control" id="cliente-nombre" name="nombre" type="text" aria-describedby="error-cliente-nombre" required>
+                                <div class="invalid-feedback" id="error-cliente-nombre"></div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label" for="cliente-usuario">Nombre de usuario</label>
+                                <input class="form-control" id="cliente-usuario" name="usuario" type="text" aria-describedby="error-cliente-usuario" required>
+                                <div class="invalid-feedback" id="error-cliente-usuario"></div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label" for="cliente-correo">Correo electrónico</label>
+                                <input class="form-control" id="cliente-correo" name="correo" type="email" aria-describedby="error-cliente-correo" required>
+                                <div class="invalid-feedback" id="error-cliente-correo"></div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label" for="cliente-nacimiento">Fecha de nacimiento</label>
+                                <input class="form-control" id="cliente-nacimiento" name="nacimiento" type="date" aria-describedby="error-cliente-nacimiento" required>
+                                <div class="invalid-feedback" id="error-cliente-nacimiento"></div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label" for="cliente-direccion">Dirección de despacho (opcional)</label>
+                                <input class="form-control" id="cliente-direccion" name="direccion" type="text" aria-describedby="error-cliente-direccion" >
+                                <div class="invalid-feedback" id="error-cliente-direccion"></div>
+                            </div>
+                            <div class="col-12"><p id="resultado-cliente" class="text-danger" role="status" aria-live="polite"></p></div>
+                            <div class="col-12 d-flex flex-wrap gap-2">
+                                <button class="btn acceso-enviar" type="submit">Guardar cambios</button>
+                                <button class="btn acceso-limpiar" type="button" data-bs-dismiss="modal">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal-estado-cliente" tabindex="-1" aria-labelledby="titulo-estado-cliente" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content editor-producto">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs-4" id="titulo-estado-cliente">Cambiar estado del cliente</h2>
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Cerrar confirmación"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="mensaje-estado-cliente"></p>
+                        <p id="error-estado-cliente" class="text-danger" role="status"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn acceso-limpiar" type="button" data-bs-dismiss="modal">Cancelar</button>
+                        <button class="btn acceso-enviar" type="button" id="confirmar-estado-cliente">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

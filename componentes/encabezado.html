@@ -1,465 +1,213 @@
 <!-- ENCABEZADO COMPARTIDO -->
+
 <header class="encabezado">
-    <div
-        class="contenedor container encabezado-contenido row mx-auto align-items-center gy-3"
-    >
-        <div
-            class="col-12 col-lg-4 d-none d-lg-block"
-            aria-hidden="true"
-        ></div>
-
-        <div class="col-12 col-lg-4 d-flex justify-content-center">
-            <a
-                class="marca"
-                data-ruta="index.html"
-                aria-label="TableFamily, página de inicio"
-            >
-                <img
-                    data-imagen="img/Logo.png"
-                    class="img-fluid"
-                    alt="TableFamily"
-                    width="280"
-                >
-            </a>
-        </div>
-
-        <div
-            class="col-12 col-lg-4 d-flex justify-content-center justify-content-lg-end"
-        >
-            <button
-                class="btn boton-acceso"
-                type="button"
-                data-abrir-acceso
-                aria-haspopup="dialog"
-                aria-controls="modal-acceso"
-            >
-                <span class="acceso-dados" aria-hidden="true">
-                    <span>⚄</span>
-                    <span>⚂</span>
-                </span>
-
-                <span>Iniciar sesión</span>
-            </button>
-        </div>
-
-        <div class="col-12 d-flex justify-content-center">
-            <nav
-                class="menu d-flex flex-wrap justify-content-center"
-                aria-label="Navegación principal"
-            >
-                <a
-                    class="menu-enlace"
-                    data-ruta="index.html"
-                    data-menu="inicio"
-                >
+        <div class="contenedor container encabezado-contenido row mx-auto align-items-center gy-3">
+            <div class="col-12 col-lg-4 d-none d-lg-block" aria-hidden="true"></div>
+            <div class="col-12 col-lg-4 d-flex justify-content-center">
+                <a class="marca" data-ruta="index.html" aria-label="TableFamily, página de inicio">
+                    <img data-imagen="img/Logo.png" class="img-fluid" alt="TableFamily" width="280">
+                </a>
+            </div>
+            <div class="col-12 col-lg-4 d-flex justify-content-center justify-content-lg-end flex-wrap gap-2">
+                <button class="btn boton-acceso" type="button" data-abrir-acceso aria-haspopup="dialog" aria-controls="modal-acceso">
+                    <span class="acceso-dados" aria-hidden="true">
+                        <span>⚄</span>
+                        <span>⚂</span>
+                    </span>
+                    <span>Iniciar sesión</span>
+                </button>
+                <div id="sesion-activa" class="sesion-activa d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center gap-2" hidden="hidden"></div>
+                <a class="btn acceso-limpiar enlace-carrito" data-ruta="paginas/carrito.html" data-enlace-carrito aria-label="Ver carrito de compras">Carrito <span class="badge rounded-pill contador-carrito" data-cantidad-carrito>0</span>
+                </a>
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+                <nav class="menu d-flex flex-wrap justify-content-center" aria-label="Navegación principal">
+                    <a class="menu-enlace" data-ruta="index.html" data-menu="inicio">
                     Inicio
                 </a>
-
-                <a
-                    class="menu-enlace"
-                    data-ruta="index.html#categorias"
-                    data-menu="categorias"
-                >
+                    <a class="menu-enlace" data-ruta="index.html#categorias" data-menu="categorias">
                     Categorías
                 </a>
-            </nav>
+                </nav>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
 <!-- MODAL DE ACCESO BOOTSTRAP 5 -->
-<div
-    class="modal fade"
-    id="modal-acceso"
-    tabindex="-1"
-    aria-labelledby="titulo-acceso"
-    aria-hidden="true"
->
-    <div
-        class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
-    >
-        <div class="modal-content acceso-contenido">
 
-            <!-- TÍTULO Y BOTÓN DE CIERRE -->
-            <div class="modal-header border-0 align-items-start">
-                <div>
-                    <p class="acceso-etiqueta">
+<div class="modal fade" id="modal-acceso" tabindex="-1" aria-labelledby="titulo-acceso" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content acceso-contenido">
+                <!-- TÍTULO Y BOTÓN DE CIERRE -->
+                <div class="modal-header border-0 align-items-start">
+                    <div>
+                        <p class="acceso-etiqueta">
                         Bienvenido a TableFamily
                     </p>
-
-                    <h2 class="modal-title" id="titulo-acceso">
+                        <h2 class="modal-title" id="titulo-acceso">
                         Iniciar sesión
                     </h2>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar ventana"></button>
                 </div>
-
-                <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Cerrar ventana"
-                ></button>
-            </div>
-
-            <div class="modal-body">
-                <p class="acceso-introduccion">
+                <div class="modal-body">
+                    <p class="acceso-introduccion">
                     Un lugar para quienes disfrutan compartir
                     una buena partida.
                 </p>
-
-                <!-- SELECCIÓN DEL FORMULARIO -->
-                <div
-                    class="acceso-opciones d-flex gap-2"
-                    role="group"
-                    aria-label="Tipo de formulario"
-                >
-                    <button
-                        type="button"
-                        class="btn opcion-acceso seleccionada flex-fill"
-                        data-vista-acceso="login"
-                        aria-pressed="true"
-                        aria-controls="form-login"
-                    >
+                    <!-- SELECCIÓN DEL FORMULARIO -->
+                    <div class="acceso-opciones d-flex gap-2" role="group" aria-label="Tipo de formulario">
+                        <button type="button" class="btn opcion-acceso seleccionada flex-fill" data-vista-acceso="login" aria-pressed="true" aria-controls="form-login">
                         Iniciar sesión
                     </button>
-
-                    <button
-                        type="button"
-                        class="btn opcion-acceso flex-fill"
-                        data-vista-acceso="registro"
-                        aria-pressed="false"
-                        aria-controls="form-registro"
-                    >
+                        <button type="button" class="btn opcion-acceso flex-fill" data-vista-acceso="registro" aria-pressed="false" aria-controls="form-registro">
                         Abrir cuenta
                     </button>
-                </div>
-
-                <!-- FORMULARIO DE INICIO DE SESIÓN -->
-                <form
-                    id="form-login"
-                    class="form-acceso row g-3"
-                    novalidate
-                >
-                    <div class="col-12 campo-acceso">
-                        <label
-                            for="login-usuario"
-                            class="form-label"
-                        >
+                    </div>
+                    <!-- FORMULARIO DE INICIO DE SESIÓN -->
+                    <form id="form-login" class="form-acceso row g-3" novalidate>
+                        <div class="col-12 campo-acceso">
+                            <label for="login-usuario" class="form-label">
                             Nombre de usuario
                         </label>
-
-                        <input
-                            id="login-usuario"
-                            name="usuario"
-                            class="form-control"
-                            type="text"
-                            autocomplete="username"
-                            aria-describedby="error-login-usuario"
-                            required
-                        >
-
-                        <div
-                            id="error-login-usuario"
-                            class="invalid-feedback"
-                        ></div>
-                    </div>
-
-                    <div class="col-12 campo-acceso">
-                        <label
-                            for="login-clave"
-                            class="form-label"
-                        >
+                            <input id="login-usuario" name="usuario" class="form-control" type="text" autocomplete="username" aria-describedby="error-login-usuario" required>
+                            <div id="error-login-usuario" class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 campo-acceso">
+                            <label for="login-clave" class="form-label">
                             Contraseña
                         </label>
-
-                        <input
-                            id="login-clave"
-                            name="clave"
-                            class="form-control"
-                            type="password"
-                            autocomplete="current-password"
-                            aria-describedby="error-login-clave"
-                            required
-                        >
-
-                        <div
-                            id="error-login-clave"
-                            class="invalid-feedback"
-                        ></div>
-                    </div>
-
-                    <div
-                        class="col-12 acceso-acciones d-flex flex-wrap gap-2 mt-4"
-                    >
-                        <button
-                            type="submit"
-                            class="btn acceso-enviar"
-                        >
+                            <input id="login-clave" name="clave" class="form-control" type="password" autocomplete="current-password" aria-describedby="error-login-clave" required>
+                            <div id="error-login-clave" class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 acceso-acciones d-flex flex-wrap gap-2 mt-4">
+                            <button type="submit" class="btn acceso-enviar">
                             Iniciar sesión
                         </button>
-
-                        <button
-                            type="reset"
-                            class="btn acceso-limpiar"
-                        >
+                            <button type="reset" class="btn acceso-limpiar">
                             Limpiar
                         </button>
-                    </div>
-
-                    <div class="col-12">
-                        <p
-                            class="acceso-resultado"
-                            role="status"
-                            aria-live="polite"
-                        ></p>
-                    </div>
-                </form>
-
-                <!-- FORMULARIO PARA ABRIR CUENTA -->
-                <form
-                    id="form-registro"
-                    class="form-acceso row g-3"
-                    novalidate
-                    hidden
-                >
-                    <div class="col-12 col-md-6 campo-acceso">
-                        <label
-                            for="registro-nombre"
-                            class="form-label"
-                        >
+                        </div>
+                        <div class="col-12">
+                            <p class="acceso-resultado" role="status" aria-live="polite"></p>
+                        </div>
+                        <div class="col-12">
+                            <button type="button" class="btn enlace-recuperacion" data-vista-acceso="recuperacion">¿Olvidaste tu contraseña?</button>
+                            <details class="cuentas-demo">
+                                <summary>Cuentas de prueba</summary>
+                                <p>Cliente: cliente / Cliente123<br>Administrador: admin / Admin123</p>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <button type="button" class="btn acceso-limpiar" data-cuenta-demo="cliente">Usar cliente</button>
+                                    <button type="button" class="btn acceso-limpiar" data-cuenta-demo="admin">Usar administrador</button>
+                                </div>
+                            </details>
+                        </div>
+                    </form>
+                    <!-- FORMULARIO PARA ABRIR CUENTA -->
+                    <form id="form-registro" class="form-acceso row g-3" novalidate hidden>
+                        <div class="col-12 col-md-6 campo-acceso">
+                            <label for="registro-nombre" class="form-label">
                             Nombre completo
                         </label>
-
-                        <input
-                            id="registro-nombre"
-                            name="nombre"
-                            class="form-control"
-                            type="text"
-                            autocomplete="name"
-                            aria-describedby="error-registro-nombre"
-                            required
-                        >
-
-                        <div
-                            id="error-registro-nombre"
-                            class="invalid-feedback"
-                        ></div>
-                    </div>
-
-                    <div class="col-12 col-md-6 campo-acceso">
-                        <label
-                            for="registro-usuario"
-                            class="form-label"
-                        >
+                            <input id="registro-nombre" name="nombre" class="form-control" type="text" autocomplete="name" aria-describedby="error-registro-nombre" required>
+                            <div id="error-registro-nombre" class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-md-6 campo-acceso">
+                            <label for="registro-usuario" class="form-label">
                             Nombre de usuario
                         </label>
-
-                        <input
-                            id="registro-usuario"
-                            name="usuario"
-                            class="form-control"
-                            type="text"
-                            autocomplete="username"
-                            aria-describedby="error-registro-usuario"
-                            required
-                        >
-
-                        <div
-                            id="error-registro-usuario"
-                            class="invalid-feedback"
-                        ></div>
-                    </div>
-
-                    <div class="col-12 campo-acceso">
-                        <label
-                            for="registro-correo"
-                            class="form-label"
-                        >
+                            <input id="registro-usuario" name="usuario" class="form-control" type="text" autocomplete="username" aria-describedby="error-registro-usuario" required>
+                            <div id="error-registro-usuario" class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 campo-acceso">
+                            <label for="registro-correo" class="form-label">
                             Correo electrónico
                         </label>
-
-                        <input
-                            id="registro-correo"
-                            name="correo"
-                            class="form-control"
-                            type="email"
-                            autocomplete="email"
-                            aria-describedby="error-registro-correo"
-                            required
-                        >
-
-                        <div
-                            id="error-registro-correo"
-                            class="invalid-feedback"
-                        ></div>
-                    </div>
-
-                    <div class="col-12 col-md-6 campo-acceso">
-                        <label
-                            for="registro-clave"
-                            class="form-label"
-                        >
+                            <input id="registro-correo" name="correo" class="form-control" type="email" autocomplete="email" aria-describedby="error-registro-correo" required>
+                            <div id="error-registro-correo" class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-md-6 campo-acceso">
+                            <label for="registro-clave" class="form-label">
                             Contraseña
                         </label>
-
-                        <input
-                            id="registro-clave"
-                            name="clave"
-                            class="form-control"
-                            type="password"
-                            autocomplete="new-password"
-                            aria-describedby="error-registro-clave ayuda-clave"
-                            minlength="6"
-                            maxlength="18"
-                            required
-                        >
-
-                        <ul id="ayuda-clave" class="reglas-clave">
-                            <li id="regla-longitud">
-                                <span
-                                    class="regla-icono"
-                                    aria-hidden="true"
-                                >○</span>
+                            <input id="registro-clave" name="clave" class="form-control" type="password" autocomplete="new-password" aria-describedby="error-registro-clave ayuda-clave" minlength="6" maxlength="18" required>
+                            <ul id="ayuda-clave" class="reglas-clave">
+                                <li id="regla-longitud">
+                                    <span class="regla-icono" aria-hidden="true">○</span>
                                 Entre 6 y 18 caracteres
                             </li>
-
-                            <li id="regla-mayuscula">
-                                <span
-                                    class="regla-icono"
-                                    aria-hidden="true"
-                                >○</span>
+                                <li id="regla-mayuscula">
+                                    <span class="regla-icono" aria-hidden="true">○</span>
                                 Al menos una letra mayúscula
                             </li>
-
-                            <li id="regla-numero">
-                                <span
-                                    class="regla-icono"
-                                    aria-hidden="true"
-                                >○</span>
+                                <li id="regla-minuscula">
+                                    <span class="regla-icono" aria-hidden="true">○</span> Al menos una letra minúscula</li>
+                                <li id="regla-numero">
+                                    <span class="regla-icono" aria-hidden="true">○</span>
                                 Al menos un número
                             </li>
-                        </ul>
-
-                        <div
-                            id="error-registro-clave"
-                            class="invalid-feedback"
-                        ></div>
-                    </div>
-
-                    <div class="col-12 col-md-6 campo-acceso">
-                        <label
-                            for="registro-confirmacion"
-                            class="form-label"
-                        >
+                            </ul>
+                            <div id="error-registro-clave" class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-md-6 campo-acceso">
+                            <label for="registro-confirmacion" class="form-label">
                             Repetir contraseña
                         </label>
-
-                        <input
-                            id="registro-confirmacion"
-                            name="confirmacion"
-                            class="form-control"
-                            type="password"
-                            autocomplete="new-password"
-                            aria-describedby="error-registro-confirmacion ayuda-confirmacion"
-                            required
-                        >
-
-                        <p
-                            id="ayuda-confirmacion"
-                            class="regla-confirmacion"
-                        >
-                            <span
-                                class="regla-icono"
-                                aria-hidden="true"
-                            >○</span>
+                            <input id="registro-confirmacion" name="confirmacion" class="form-control" type="password" autocomplete="new-password" aria-describedby="error-registro-confirmacion ayuda-confirmacion" required>
+                            <p id="ayuda-confirmacion" class="regla-confirmacion">
+                                <span class="regla-icono" aria-hidden="true">○</span>
                             Las contraseñas deben coincidir
                         </p>
-
-                        <div
-                            id="error-registro-confirmacion"
-                            class="invalid-feedback"
-                        ></div>
-                    </div>
-
-                    <div class="col-12 campo-acceso">
-                        <label
-                            for="registro-nacimiento"
-                            class="form-label"
-                        >
+                            <div id="error-registro-confirmacion" class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 campo-acceso">
+                            <label for="registro-nacimiento" class="form-label">
                             Fecha de nacimiento
                         </label>
-
-                        <input
-                            id="registro-nacimiento"
-                            name="nacimiento"
-                            class="form-control"
-                            type="date"
-                            autocomplete="bday"
-                            aria-describedby="error-registro-nacimiento ayuda-nacimiento"
-                            required
-                        >
-
-                        <small
-                            id="ayuda-nacimiento"
-                            class="form-text"
-                        >
+                            <input id="registro-nacimiento" name="nacimiento" class="form-control" type="date" autocomplete="bday" aria-describedby="error-registro-nacimiento ayuda-nacimiento" required>
+                            <small id="ayuda-nacimiento" class="form-text">
                             Debes tener al menos 13 años cumplidos.
                         </small>
-
-                        <div
-                            id="error-registro-nacimiento"
-                            class="invalid-feedback"
-                        ></div>
-                    </div>
-
-                    <div class="col-12 campo-acceso">
-                        <label
-                            class="form-label"
-                            for="registro-direccion"
-                        >
+                            <div id="error-registro-nacimiento" class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 campo-acceso">
+                            <label class="form-label" for="registro-direccion">
                             Dirección de despacho
                             <span class="campo-opcional">(opcional)</span>
-                        </label>
-
-                        <input
-                            class="form-control"
-                            id="registro-direccion"
-                            name="direccion"
-                            type="text"
-                            autocomplete="street-address"
-                        >
-                    </div>
-
-                    <!-- UN SOLO BOTÓN PARA VALIDAR Y OTRO PARA LIMPIAR -->
-                    <div
-                        class="col-12 acceso-acciones d-flex flex-wrap gap-2 mt-4"
-                    >
-                        <button
-                            type="submit"
-                            class="btn acceso-enviar"
-                            id="boton-validar-registro"
-                            disabled
-                        >
+                            </label>
+                            <input class="form-control" id="registro-direccion" name="direccion" type="text" autocomplete="street-address">
+                        </div>
+                        <!-- UN SOLO BOTÓN PARA VALIDAR Y OTRO PARA LIMPIAR -->
+                        <div class="col-12 acceso-acciones d-flex flex-wrap gap-2 mt-4">
+                            <button type="submit" class="btn acceso-enviar" id="boton-validar-registro" disabled>
                             Validar registro
                         </button>
-
-                        <button
-                            type="reset"
-                            class="btn acceso-limpiar"
-                        >
+                            <button type="reset" class="btn acceso-limpiar">
                             Limpiar
                         </button>
-                    </div>
-
-                    <div class="col-12">
-                        <p
-                            class="acceso-resultado"
-                            role="status"
-                            aria-live="polite"
-                        ></p>
-                    </div>
-                </form>
-
+                        </div>
+                        <div class="col-12">
+                            <p class="acceso-resultado" role="status" aria-live="polite"></p>
+                        </div>
+                    </form>
+                    <form id="form-recuperacion" class="form-acceso row g-3" novalidate hidden>
+                        <div class="col-12 campo-acceso">
+                            <label for="recuperacion-correo" class="form-label">Correo electrónico de tu cuenta</label>
+                            <input id="recuperacion-correo" name="correo" type="email" class="form-control" autocomplete="email" aria-describedby="error-recuperacion-correo" required>
+                            <div id="error-recuperacion-correo" class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 acceso-acciones d-flex flex-wrap gap-2 mt-4">
+                            <button type="submit" class="btn acceso-enviar">Recuperar contraseña</button>
+                            <button type="reset" class="btn acceso-limpiar">Limpiar</button>
+                        </div>
+                        <div class="col-12">
+                            <p class="acceso-resultado" role="status" aria-live="polite"></p>
+                        </div>
+                        <div class="col-12">
+                            <button type="button" class="btn enlace-recuperacion" data-vista-acceso="login">Volver a iniciar sesión</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>

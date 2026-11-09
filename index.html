@@ -1,197 +1,157 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>TableFamily | Juegos que nos reúnen</title>
-
-    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
-<link rel="stylesheet" href="css/estilos.css">
-    
-    <link rel="stylesheet" href="css/inicio.css">
-<link rel="stylesheet" href="css/acceso.css">
-<link rel="stylesheet" href="css/bootstrap-ajustes.css">
-<script src="vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
-    <script src="js/componentes.js" defer></script>
-    <script src="js/animaciones.js" defer></script>
-    <script src="js/acceso.js" defer></script>
-</head>
-
-<body data-pagina="inicio">
-    <a class="saltar-contenido" href="#contenido">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TableFamily | Juegos que nos reúnen</title>
+        <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="css/estilos.css">
+        <link rel="stylesheet" href="css/inicio.css">
+        <link rel="stylesheet" href="css/acceso.css">
+        <link rel="stylesheet" href="css/panel.css">
+        <link rel="stylesheet" href="css/carrito.css">
+        <link rel="stylesheet" href="css/bootstrap-ajustes.css">
+        <script src="vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
+        <script src="js/componentes.js" defer></script>
+        <script src="js/animaciones.js" defer></script>
+        <script src="js/aplicacion.js" type="module"></script>
+    </head>
+    <body data-pagina="inicio">
+        <a class="saltar-contenido" href="#contenido">
         Saltar al contenido
     </a>
-
-    <!-- Logo y navegación centrados -->
-    <div id="encabezado-compartido"></div>
-<main id="contenido">
-
-        <!-- Presentación con fotografía de fondo -->
-        <section class="portada" aria-labelledby="titulo-principal">
-            <div class="contenedor portada-contenido container">
-
-                <div class="portada-texto">
-                    <p class="etiqueta">
+        <!-- Logo y navegación centrados -->
+        <div id="encabezado-compartido"></div>
+        <main id="contenido">
+            <!-- Presentación con fotografía de fondo -->
+            <section class="portada" aria-labelledby="titulo-principal">
+                <div class="contenedor portada-contenido container">
+                    <div class="portada-texto">
+                        <p class="etiqueta">
                         Bienvenidos a TableFamily
                     </p>
-
-                    <h1 id="titulo-principal">
+                        <h1 id="titulo-principal">
                         La diversión se comparte en familia
                     </h1>
-
-                    <p class="portada-descripcion">
+                        <p class="portada-descripcion">
                         Encuentra el juego perfecto para tu próxima reunión.
                     </p>
-
-                    <a class="boton-principal" href="#categorias">
+                        <a class="boton-principal" href="#categorias">
                         Explorar juegos
                         <span aria-hidden="true">→</span>
-                    </a>
-                </div>
-
-                <p class="nota-portada">
+                        </a>
+                    </div>
+                    <p class="nota-portada">
                     Una mesa, mil historias
                 </p>
-
-            </div>
-        </section>
-
-        <!-- Catálogo de categorías -->
-        <section class="categorias" id="categorias" aria-labelledby="titulo-categorias">
-            <div class="contenedor container">
-
-                <div class="titulo-seccion">
-                    <span class="adorno" aria-hidden="true">✦</span>
-
-                    <h2 id="titulo-categorias">
+                </div>
+            </section>
+            <!-- Catálogo de categorías -->
+            <section class="categorias" id="categorias" aria-labelledby="titulo-categorias">
+                <div class="contenedor container">
+                    <div class="titulo-seccion">
+                        <span class="adorno" aria-hidden="true">✦</span>
+                        <h2 id="titulo-categorias">
                         ¿Qué jugamos hoy?
                     </h2>
-
-                    <span class="adorno" aria-hidden="true">✦</span>
-
-                    <p>
+                        <span class="adorno" aria-hidden="true">✦</span>
+                        <p>
                         Cuatro formas de compartir grandes momentos
                     </p>
-                </div>
-
-                <div class="grilla-categorias row g-4">
-
-                    <!-- Estrategia -->
-                    <div class="col-12 col-md-6 col-xl-3">
-<article class="tarjeta categoria-estrategia h-100">
-                        <a class="tarjeta-enlace" href="categorias/estrategia.html">
-                            <div class="tarjeta-imagen imagen-estrategia" role="img" aria-label="Tablero con piezas de un juego de estrategia"></div>
-
-                            <div class="tarjeta-contenido">
-                                <span class="categoria-icono" aria-hidden="true">
+                    </div>
+                    <div class="grilla-categorias row g-4">
+                        <!-- Estrategia -->
+                        <div class="col-12 col-md-6 col-xl-3">
+                            <article class="tarjeta categoria-estrategia h-100">
+                                <a class="tarjeta-enlace" href="categorias/estrategia.html">
+                                    <div class="tarjeta-imagen imagen-estrategia" role="img" aria-label="Tablero con piezas de un juego de estrategia"></div>
+                                    <div class="tarjeta-contenido">
+                                        <span class="categoria-icono" aria-hidden="true">
                                     ♜
                                 </span>
-
-                                <h3>Estrategia</h3>
-
-                                <p>
+                                        <h3>Estrategia</h3>
+                                        <p>
                                     Planifica, decide y conquista
                                     nuevos desafíos.
                                 </p>
-
-                                <span class="ver-juegos">
+                                        <span class="ver-juegos">
                                     Ver juegos
                                     <span aria-hidden="true">→</span>
-                                </span>
-                            </div>
-                        </a>
-                    </article>
-
-                    </div>
-<!-- Familiares -->
-                    <div class="col-12 col-md-6 col-xl-3">
-<article class="tarjeta categoria-familiares h-100">
-                        <a class="tarjeta-enlace" href="categorias/familiares.html">
-                            <div class="tarjeta-imagen imagen-familiares" role="img" aria-label="Una familia compartiendo un juego de mesa"></div>
-
-                            <div class="tarjeta-contenido">
-                                <span class="categoria-icono" aria-hidden="true">
+                                        </span>
+                                    </div>
+                                </a>
+                            </article>
+                        </div>
+                        <!-- Familiares -->
+                        <div class="col-12 col-md-6 col-xl-3">
+                            <article class="tarjeta categoria-familiares h-100">
+                                <a class="tarjeta-enlace" href="categorias/familiares.html">
+                                    <div class="tarjeta-imagen imagen-familiares" role="img" aria-label="Una familia compartiendo un juego de mesa"></div>
+                                    <div class="tarjeta-contenido">
+                                        <span class="categoria-icono" aria-hidden="true">
                                     ☺
                                 </span>
-
-                                <h3>Familiares</h3>
-
-                                <p>
+                                        <h3>Familiares</h3>
+                                        <p>
                                     Risas, aprendizaje y momentos
                                     para todos.
                                 </p>
-
-                                <span class="ver-juegos">
+                                        <span class="ver-juegos">
                                     Ver juegos
                                     <span aria-hidden="true">→</span>
-                                </span>
-                            </div>
-                        </a>
-                    </article>
-
-                    </div>
-<!-- Cartas -->
-                    <div class="col-12 col-md-6 col-xl-3">
-<article class="tarjeta categoria-cartas h-100">
-                        <a class="tarjeta-enlace" href="categorias/cartas.html">
-                            <div class="tarjeta-imagen imagen-cartas" role="img" aria-label="Cartas ilustradas de un juego de mesa"></div>
-
-                            <div class="tarjeta-contenido">
-                                <span class="categoria-icono" aria-hidden="true">
+                                        </span>
+                                    </div>
+                                </a>
+                            </article>
+                        </div>
+                        <!-- Cartas -->
+                        <div class="col-12 col-md-6 col-xl-3">
+                            <article class="tarjeta categoria-cartas h-100">
+                                <a class="tarjeta-enlace" href="categorias/cartas.html">
+                                    <div class="tarjeta-imagen imagen-cartas" role="img" aria-label="Cartas ilustradas de un juego de mesa"></div>
+                                    <div class="tarjeta-contenido">
+                                        <span class="categoria-icono" aria-hidden="true">
                                     ♠
                                 </span>
-
-                                <h3>Cartas</h3>
-
-                                <p>
+                                        <h3>Cartas</h3>
+                                        <p>
                                     Grandes juegos en
                                     pequeñas cartas.
                                 </p>
-
-                                <span class="ver-juegos">
+                                        <span class="ver-juegos">
                                     Ver juegos
                                     <span aria-hidden="true">→</span>
-                                </span>
-                            </div>
-                        </a>
-                    </article>
-
-                    </div>
-<!-- Cooperativos -->
-                    <div class="col-12 col-md-6 col-xl-3">
-<article class="tarjeta categoria-cooperativos h-100">
-                        <a class="tarjeta-enlace" href="categorias/cooperativos.html">
-                            <div class="tarjeta-imagen imagen-cooperativos" role="img" aria-label="Miniaturas sobre un tablero de aventura cooperativa"></div>
-
-                            <div class="tarjeta-contenido">
-                                <span class="categoria-icono" aria-hidden="true">
+                                        </span>
+                                    </div>
+                                </a>
+                            </article>
+                        </div>
+                        <!-- Cooperativos -->
+                        <div class="col-12 col-md-6 col-xl-3">
+                            <article class="tarjeta categoria-cooperativos h-100">
+                                <a class="tarjeta-enlace" href="categorias/cooperativos.html">
+                                    <div class="tarjeta-imagen imagen-cooperativos" role="img" aria-label="Miniaturas sobre un tablero de aventura cooperativa"></div>
+                                    <div class="tarjeta-contenido">
+                                        <span class="categoria-icono" aria-hidden="true">
                                     ⚑
                                 </span>
-
-                                <h3>Cooperativos</h3>
-
-                                <p>
+                                        <h3>Cooperativos</h3>
+                                        <p>
                                     Unan fuerzas para superar
                                     el reto juntos.
                                 </p>
-
-                                <span class="ver-juegos">
+                                        <span class="ver-juegos">
                                     Ver juegos
                                     <span aria-hidden="true">→</span>
-                                </span>
-                            </div>
-                        </a>
-                    </article>
-
+                                        </span>
+                                    </div>
+                                </a>
+                            </article>
+                        </div>
+                    </div>
                 </div>
-</div>
-            </div>
-        </section>
-
-    </main>
-
-    <div id="footer-compartido"></div>
-</body>
+            </section>
+        </main>
+        <div id="footer-compartido"></div>
+    </body>
 </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Carrito de compras | TableFamily</title>
+        <link rel="stylesheet" href="../vendor/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/estilos.css">
+        <link rel="stylesheet" href="../css/acceso.css">
+        <link rel="stylesheet" href="../css/panel.css">
+        <link rel="stylesheet" href="../css/carrito.css">
+        <link rel="stylesheet" href="../css/bootstrap-ajustes.css">
+        <script src="../vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
+        <script src="../js/componentes.js" defer></script>
+        <script src="../js/animaciones.js" defer></script>
+        <script src="../js/aplicacion.js" type="module"></script>
+    </head>
+    <body data-pagina="carrito">
+        <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+        <div id="encabezado-compartido"></div>
+        <main id="contenido" class="contenedor container pagina-cuenta">
+<p class="etiqueta">Tu próxima partida</p><h1>Carrito de compras</h1>
+<p class="aviso-cuenta">Revisa tus juegos y confirma las cantidades antes de comprar.</p>
+<p id="mensaje-carrito" role="status" aria-live="polite" class="mensaje-carrito"></p>
+<section id="carrito-no-disponible" class="panel-cuenta" hidden><h2>Compra con tu cuenta de cliente</h2><p>La cuenta de administrador gestiona la tienda. Inicia sesión con una cuenta de cliente para comprar.</p><button type="button" class="btn boton-acceso" data-abrir-acceso>Cambiar de cuenta</button></section>
+<section id="carrito-vacio" class="panel-cuenta text-center" hidden><h2>Tu carrito está vacío</h2><p>Explora las categorías y elige tu próximo juego.</p><a class="btn boton-acceso" href="../index.html#categorias">Explorar juegos</a></section>
+<div id="carrito-contenido" class="row g-4" hidden>
+<section class="col-12 col-lg-8" aria-label="Juegos en tu carrito"><div id="lineas-carrito" class="d-grid gap-3"></div><div class="d-flex flex-wrap gap-2 mt-3"><a class="btn acceso-limpiar" href="../index.html#categorias">Seguir comprando</a><button class="btn acceso-limpiar" type="button" id="vaciar-carrito">Vaciar carrito</button></div></section>
+<aside class="col-12 col-lg-4"><div class="panel-cuenta resumen-carrito"><h2>Resumen de compra</h2><dl class="totales-carrito"><div><dt>Precio normal</dt><dd id="carrito-normal"></dd></div><div><dt>Descuentos</dt><dd id="carrito-ahorro"></dd></div><div class="total-final"><dt>Total</dt><dd id="carrito-total"></dd></div></dl><p class="form-text">Sin costos de despacho en esta simulación.</p><p id="aviso-estado-carrito" class="aviso-cuenta"></p><button type="button" id="abrir-compra" class="btn acceso-enviar w-100">Continuar compra</button><button type="button" id="ingresar-para-comprar" class="btn acceso-enviar w-100" data-abrir-acceso hidden>Iniciar sesión para comprar</button></div></aside>
+</div>
+<div class="modal fade" id="modal-compra" tabindex="-1" aria-labelledby="titulo-compra" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"><div class="modal-content editor-producto"><div class="modal-header"><h2 class="modal-title fs-4" id="titulo-compra">Confirmar compra</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar confirmación"></button></div><div class="modal-body">
+<p>Esta compra y su pago son simulados. No se realizará ningún cobro.</p><p class="total-modal">Total a confirmar: <strong id="total-confirmacion"></strong></p>
+<form id="form-compra" class="row g-3" novalidate>
+<div class="col-12"><label class="form-label" for="compra-metodoPago">Medio de pago</label><select class="form-select" id="compra-metodoPago" name="metodoPago" aria-describedby="error-compra-metodoPago" required><option value="">Seleccionar medio de pago</option><option value="tarjeta-demo">Tarjeta (simulada)</option><option value="transferencia-demo">Transferencia (simulada)</option></select><div id="error-compra-metodoPago" class="invalid-feedback"></div></div>
+<div class="col-12"><label class="form-label" for="compra-entrega">Entrega</label><select class="form-select" id="compra-entrega" name="entrega" aria-describedby="error-compra-entrega" required><option value="retiro">Retiro en tienda</option><option value="despacho">Despacho a domicilio</option></select><div id="error-compra-entrega" class="invalid-feedback"></div></div>
+<div class="col-12" id="campo-direccion-compra" hidden><label class="form-label" for="compra-direccion">Dirección de despacho</label><input class="form-control" id="compra-direccion" name="direccion" maxlength="200" autocomplete="street-address" aria-describedby="error-compra-direccion"><div id="error-compra-direccion" class="invalid-feedback"></div></div>
+<div class="col-12"><div class="form-check"><input class="form-check-input" id="compra-acepto" name="acepto" type="checkbox" aria-describedby="error-compra-acepto" required><label class="form-check-label" for="compra-acepto">Entiendo que esta compra y su pago son simulados.</label><div id="error-compra-acepto" class="invalid-feedback"></div></div></div>
+<div class="col-12"><p id="resultado-compra" role="status" aria-live="polite" class="text-danger mb-0"></p></div>
+<div class="col-12 d-flex gap-2 flex-wrap"><button type="submit" class="btn acceso-enviar" id="confirmar-compra" disabled>Confirmar compra simulada</button><button type="button" class="btn acceso-limpiar" data-bs-dismiss="modal">Volver al carrito</button></div>
+</form></div></div></div></div>
+        </main>
+        <div id="footer-compartido"></div>
+    </body>
+</html>

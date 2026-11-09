@@ -1,0 +1,38 @@
+/* Carrito, compra simulada e historial sobre la rejilla de Bootstrap. */
+.contador-carrito {background: var(--naranja); color: var(--azul-profundo); margin-left: 5px;}
+.enlace-carrito {flex: 0 0 auto; font-weight: 700; font-size: .9rem;}
+.mensaje-carrito {color: #236344; overflow-wrap: anywhere;}
+.mensaje-carrito:empty {display: none;}
+.linea-carrito {padding: 20px;}
+.linea-carrito h2 {font-size: 1.2rem; margin-bottom: 6px;}
+.imagen-carrito {width: 65px; height: 75px; object-fit: contain; flex-shrink: 0;}
+.info-linea {min-width: 0; overflow-wrap: anywhere;}
+.precio-unitario {font-size: .85rem; color: var(--texto);}
+.control-cantidad {display: flex; align-items: center; gap: 5px; max-width: 170px;}
+.cantidad-boton {border: 1px solid var(--borde); border-radius: 10px; background: var(--crema); color: var(--azul); font-size: 1.2rem; min-width: 34px; padding: 6px;}
+.cantidad-boton:hover {background: #ffe0bd; border-color: #efbd8f;}
+.cantidad-input {text-align: center; padding: 7px 4px; width: 68px; min-height: 42px; flex-shrink: 1;}
+.subtotal-carrito {font-size: 1.15rem; font-weight: 800; color: var(--azul);}
+.quitar-carrito {padding: 3px 0; color: var(--naranja-oscuro); font-size: .85rem; text-decoration: underline;}
+.quitar-carrito:hover {color: var(--azul);}
+.resumen-carrito {position: sticky; top: 24px;}
+.totales-carrito {margin-top: 24px;}
+.totales-carrito > div {display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 14px;}
+.totales-carrito dt {font-weight: 400; color: var(--texto);}
+.totales-carrito dd {margin: 0; font-weight: 700; white-space: nowrap;}
+.totales-carrito .total-final {border-top: 1px solid var(--borde); padding-top: 18px; font-size: 1.35rem;}
+.total-final dt {color: var(--azul); font-weight: 800;}
+.total-modal {font-size: 1.2rem;}
+.tarjeta-pedido {overflow-wrap: anywhere;}
+.tarjeta-pedido h2 {font-size: 1.3rem; margin: 0;}
+.tarjeta-pedido summary {color: var(--naranja-oscuro); font-weight: 700; cursor: pointer;}
+.pedido-confirmado {border-color: #239670; box-shadow: 0 0 0 2px rgb(35 150 112 / 14%);}
+#modal-compra .form-label {font-weight: 700;}
+#modal-compra .form-control, #modal-compra .form-select {min-height: 44px;}
+@media (max-width: 575.98px) {
+    .imagen-carrito {width: 55px; height: 65px;}
+    .linea-carrito {padding: 16px;}
+    .resumen-carrito {position: static;}
+    #form-compra > .d-flex > .btn {width: 100%;}
+}
+.acceso-enviar:disabled {background: #eadbcd; border-color: #d7c5b5; color: #74665b; opacity: 1; box-shadow: none; transform: none;}

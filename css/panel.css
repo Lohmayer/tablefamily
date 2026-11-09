@@ -1,0 +1,39 @@
+/* Perfil y paneles: Bootstrap organiza el espacio; TableFamily conserva sus colores. */
+[hidden] {display: none !important;}
+.sesion-activa {max-width: 100%; font-size: .85rem;}
+.saludo-sesion {width: 100%; text-align: right; overflow-wrap: anywhere;}
+.sesion-activa .btn {font-size: .85rem; min-height: 38px; padding: 8px 12px; flex: 0 1 auto;}
+.enlace-recuperacion {color: var(--naranja-oscuro); padding-inline: 0; text-decoration: underline;}
+.enlace-recuperacion:hover {color: var(--azul);}
+.cuentas-demo {margin-top: 16px; color: var(--texto); font-size: .85rem;}
+.cuentas-demo p {margin: 12px 0;}
+.pagina-cuenta {padding-block: 65px; min-height: 60vh;}
+.pagina-cuenta h1 {font-size: clamp(2rem, 4vw, 3rem);}
+.panel-cuenta {padding: clamp(20px, 3vw, 32px); background: var(--blanco); border: 1px solid var(--borde); border-radius: var(--radio); box-shadow: var(--sombra);}
+.panel-cuenta h2 {font: 700 1.6rem Georgia, serif;}
+.aviso-cuenta {color: var(--texto);}
+.tabla-panel {color: var(--azul); margin: 0;}
+.tabla-panel th {background: var(--crema); white-space: nowrap;}
+.tabla-panel td {vertical-align: middle;}
+.dato-panel {font-size: 2rem; font-weight: 800; color: var(--naranja-oscuro);}
+@media (max-width: 991.98px) {.saludo-sesion {text-align: center;}}
+/* Inventario editable */
+.editor-producto {background: var(--crema); color: var(--azul); border-radius: var(--radio);}
+.editor-producto .form-control, .editor-producto .form-select {min-height: 44px; border-radius: 10px;}
+.editor-producto .form-label {font-weight: 700;}
+.editor-producto .modal-body {padding: clamp(18px, 3vw, 28px);}
+.acciones-producto {display: flex; gap: 8px; min-width: 155px;}
+.acciones-producto .btn {flex: 0 0 auto; padding: 7px 12px; font-size: .85rem;}
+.resultado-inventario {font-size: .95rem; color: #236344; overflow-wrap: anywhere;}
+.resultado-inventario:empty {display: none;}
+#resultado-producto {color: #b42318;}
+.vista-imagen-producto {width: 100%; height: 130px; object-fit: contain; background: #f5ede1; border-radius: 12px;}
+.precio-previsto {font-size: 1.35rem; font-weight: 800; color: var(--azul);}
+.stock-producto {font-size: .9rem; color: var(--texto);}
+.stock-agotado {color: #b42318; font-weight: 700;}
+.catalogo-vacio {padding-block: 35px; color: var(--texto);}
+#tabla-productos td:first-child {min-width: 150px; overflow-wrap: anywhere;}
+@media (max-width: 575.98px) {
+    .editor-producto .modal-footer .btn {width: 100%;}
+    #agregar-producto {width: 100%;}
+}

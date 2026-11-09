@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mis compras | TableFamily</title>
+        <link rel="stylesheet" href="../vendor/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/estilos.css">
+        <link rel="stylesheet" href="../css/acceso.css">
+        <link rel="stylesheet" href="../css/panel.css">
+        <link rel="stylesheet" href="../css/carrito.css">
+        <link rel="stylesheet" href="../css/bootstrap-ajustes.css">
+        <script src="../vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
+        <script src="../js/componentes.js" defer></script>
+        <script src="../js/animaciones.js" defer></script>
+        <script src="../js/aplicacion.js" type="module"></script>
+    </head>
+    <body data-pagina="compras">
+        <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+        <div id="encabezado-compartido"></div>
+        <main id="contenido" class="contenedor container pagina-cuenta">
+<p class="etiqueta">Tu espacio en TableFamily</p><h1>Mis compras</h1>
+<p class="aviso-cuenta">Consulta tus pedidos y los detalles de cada compra.</p>
+<p id="mensaje-compras" role="status" aria-live="polite" class="mensaje-carrito"></p>
+<section id="compras-requiere-cliente" class="panel-cuenta" hidden><h2>Acceso a tus compras</h2><p id="aviso-compras">Inicia sesión con tu cuenta de cliente para ver tus pedidos.</p><button class="btn boton-acceso" type="button" data-abrir-acceso>Iniciar sesión</button></section>
+<section id="compras-vacias" class="panel-cuenta text-center" hidden><h2>Aún no tienes compras</h2><p>Cuando confirmes una compra, aparecerá aquí.</p><a class="btn boton-acceso" href="../index.html#categorias">Explorar juegos</a></section>
+<section id="lista-compras" class="d-grid gap-4" aria-label="Historial de compras"></section>
+<div class="d-flex gap-2 flex-wrap mt-4"><a href="carrito.html" class="btn acceso-limpiar">Ver carrito</a><a href="perfil.html" class="btn acceso-limpiar">Mi cuenta</a></div>
+        </main>
+        <div id="footer-compartido"></div>
+    </body>
+</html>
